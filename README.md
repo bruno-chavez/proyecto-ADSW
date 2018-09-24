@@ -22,6 +22,7 @@ If you're using WebStorm 7 EAP, the workaround is to configure TypeScript stubs:
      select "TypeScript community stubs"
      select express and click "Download and Install".
 
++ Si se quiere Trabajar Con Angular se usa ng serve y para ver los cambios en express ng build 
 
 After that most express methods should be resolved.
 
