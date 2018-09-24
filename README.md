@@ -37,3 +37,5 @@ https://www.robinwieruch.de/postgres-express-setup-tutorial/
 + [Redmine de proyecto](https://dsw.toeska.cl/projects/rusty-nail)
 
 + [Guida de Sequelize CLI](http://docs.sequelizejs.com/manual/tutorial/migrations.html)
+
++ [Tutorial Login con Angular](https://www.youtube.com/watch?v=MJncyf_veEY)
