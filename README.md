@@ -25,8 +25,15 @@ If you're using WebStorm 7 EAP, the workaround is to configure TypeScript stubs:
 
 After that most express methods should be resolved.
 
+
 + Para empezar con Postgre y Sequelize:
 
 https://www.robinwieruch.de/postgres-express-setup-tutorial/
 
-* Plantilla Entregable 1 : https://docs.google.com/document/d/1Vhm6ZqikxmGGV9dLtLayqYEIf5WOJv4AScgBgxfXuv8/edit
+## Links
+
++ [Plantilla Entregable 1](https://docs.google.com/document/d/1Vhm6ZqikxmGGV9dLtLayqYEIf5WOJv4AScgBgxfXuv8/edit)
+
++ [Redmine de proyecto](https://dsw.toeska.cl/projects/rusty-nail)
+
++ [Guida de Sequelize CLI](http://docs.sequelizejs.com/manual/tutorial/migrations.html)
