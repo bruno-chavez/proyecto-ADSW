@@ -28,3 +28,5 @@ After that most express methods should be resolved.
 + Para empezar con Postgre y Sequelize:
 
 https://www.robinwieruch.de/postgres-express-setup-tutorial/
+
+* Plantilla Entregable 1 : https://docs.google.com/document/d/1Vhm6ZqikxmGGV9dLtLayqYEIf5WOJv4AScgBgxfXuv8/edit
