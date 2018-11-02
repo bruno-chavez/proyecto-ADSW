@@ -24,8 +24,9 @@ If you're using WebStorm 7 EAP, the workaround is to configure TypeScript stubs:
 
 + Si se quiere Trabajar Con Angular se usa "ng serve" y para ver los cambios en express "ng build" en la carpeta front-end 
 
-After that most express methods should be resolved.
++ Para implementar autentificacion: 
 
+https://www.sitepoint.com/user-authentication-mean-stack/
 
 + Para empezar con Postgre y Sequelize:
 
