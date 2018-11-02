@@ -9,10 +9,14 @@ import { FooterComponent } from './footer/footer.component';
 import { RouterModule , Routes } from '@angular/router';
 import { RegisterComponent } from './register/register.component';
 import { FormsModule } from '@angular/forms';
+import { HistorialComponent } from './historial/historial.component';
+import { ComandoComponent } from './comando/comando.component';
+import { UserComponent } from './user/user.component';
 
 const routes: Routes=[
   {path: '',component: LoginFormComponent},
-  {path: 'register',component: RegisterComponent}
+  {path:'user',component:UserComponent}
+  //{path: 'register',component: RegisterComponent}
 
 ];
 
@@ -23,7 +27,10 @@ const routes: Routes=[
     HeaderComponent,
     LoginFormComponent,
     FooterComponent,
-    RegisterComponent
+    RegisterComponent,
+    HistorialComponent,
+    ComandoComponent,
+    UserComponent
     
   ],
   imports: [
