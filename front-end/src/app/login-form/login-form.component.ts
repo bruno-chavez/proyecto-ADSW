@@ -22,6 +22,6 @@ export class LoginFormComponent implements OnInit {
       alert('Este Correo No Esta Autorizado Para Hacer Login');
     }
     
-    return false;
+    
   }
 }
