@@ -5,7 +5,10 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING,
     email: DataTypes.STRING,
     password: DataTypes.STRING
-  }, {});
+  }, {
+      freezeTableName: true,
+      tableName: 'User'
+  });
   User.associate = function(models) {
     // associations can be defined here
   };
