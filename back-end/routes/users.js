@@ -2,10 +2,16 @@
 
 let express = require('express');
 let router = express.Router();
+let cors = require('cors');
+let userController = require('../controllers/userController');
+
+let app = express();
+
+app.use(cors({
+    origin: 'http://localhost:4200'
+}));
 
 /* GET users listing. */
-router.get('/', function(req, res) {
-  res.send('respond with a resource');
-});
+router.get('/', userController.list);
 
 module.exports = router;
