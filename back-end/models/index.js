@@ -39,6 +39,6 @@ db.Sequelize = Sequelize;
 db.user = require('./user')(sequelize, Sequelize);
 db.admin = require('./admin')(sequelize, Sequelize);
 db.device = require('./device')(sequelize, Sequelize);
-db.function = require('./function')(sequelize, Sequelize);
+db.command = require('./command')(sequelize, Sequelize);
 
 module.exports = db;
