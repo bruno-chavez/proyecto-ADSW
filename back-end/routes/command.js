@@ -12,6 +12,6 @@ app.use(cors({
 }));
 
 /* GET users listing. */
-router.post('/user', commandController.post);
+router.post('/', commandController.post);
 
 module.exports = router;
