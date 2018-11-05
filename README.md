@@ -4,6 +4,8 @@ El siguiente README tiene formato Markdown, favor de visualizarlo como tal antes
 
 + Descargar el proyecto de Gitea.
 
++ Tener instalado PostgreSQL, npm, node.
+
 + Descargar dependencias de back-end usar siguiente comando dentro de la carpeta back-end:
 
 ```
