@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Comando } from './comando';
 
 @Component({
   selector: 'app-comando',
@@ -22,6 +23,7 @@ export class ComandoComponent implements OnInit {
         if((valor_s.split('.').length == 2 && valor_s.split('.')[1] < 3) || valor_s.split('.').length == 1){
             /*begin stuff*/
             console.log('Ingreso Valido');
+            let modelo= new comando(dispositivo,funcion,valor,unidad);
         }
         else{
           alert('Valor Ingresado Invalido')
