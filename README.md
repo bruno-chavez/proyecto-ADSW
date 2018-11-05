@@ -1,35 +1,53 @@
-### To Do
+El siguiente README tiene formato Markdown, favor de visualizarlo como tal antes de seguir leyendo.
 
-+ Rutas necesarias: 'login', 'register' y 'home' para el usuario
+### Guia de Instalacion del proyecto
 
-## Tips varios
-+ Para instalar todas las dependencias del proyecto solo usar npm install en la carpeta back-end y front-end por separado.
++ Descargar el proyecto de Gitea.
 
-+ Si usan Webstorm y tienen errores con los metodos get que no estan definidos sigan esto:
++ Descargar dependencias de back-end usar siguiente comando dentro de la carpeta back-end:
 
-If you're using WebStorm 7 EAP, the workaround is to configure TypeScript stubs:
+```
+proyecto-ADSW/back-end$ npm install
+```
 
-     Open Settings | JavaScript | Libraries
-     click "Download"
-     select "TypeScript community stubs"
-     select express and click "Download and Install".
++ Descargar dependencias de front-end usar siguiente comando dentro de la carpeta front-end:
 
-+ Para iniciar el servidor Angular se usa "ng serve" en la carpeta front-end. Para acceder a la pagina entrar a "localhost:4200"
+```
+proyecto-ADSW/front-end$ npm install
+```
 
-+ Para iniciar el el servidor express se usa "npm start" en la carpeta back-end. 
++ Para poder conectarse a la base de datos es necesario crearla primero, con la siguientes especificaciones:
 
-+ Para implementar autentificacion: 
+Nombre de usuario de psql: "postgres"
 
-https://www.sitepoint.com/user-authentication-mean-stack/
+contraseña para este usuario: "proyecto-ADSW"
 
-+ Para empezar con Postgre y Sequelize:
+Nombre para BD: "proyecto-ADSW"
 
-https://www.robinwieruch.de/postgres-express-setup-tutorial/
+host: "localhost"
 
-## Links
+Puerto: "5432"
 
-+ [Redmine de proyecto](https://dsw.toeska.cl/projects/rusty-nail)
+Dialecto: "postgres"
 
-+ [Guia de Sequelize CLI](http://docs.sequelizejs.com/manual/tutorial/migrations.html)
++ Una vez creada correctamente, es necesario correr las migraciones de Sequelize, dentro de la carpeta back-end, usar el siguiente comando:
 
-+ [Tutorial Login con Angular](https://www.youtube.com/watch?v=MJncyf_veEY)
+```
+proyecto-ADSW/front-end$ node_modules/.bin/sequelize db:migrate
+```
+
++ Para poder usar el sistema es necesario iniciar el servidor back-end y front-end por separado
+
+Dentro de la carpeta back-end, usar el comando:
+
+```
+proyecto-ADSW/back-end$ npm start
+```
+
+Dentro de la carpeta front-end, usar el comando:
+
+```
+proyecto-ADSW/front-end$ npm start
+```
+
+Una vez realizados todos estos pasos en el orden dado, se puede usar la pagina de manera correcta.
