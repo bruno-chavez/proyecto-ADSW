@@ -1,6 +1,18 @@
-<div>
-  <form>
-    Maquina:<br>
+<!-- ######## This is a comment, visible only in the source editor  ######## -->
+<h1 style="color: #4485b8; text-align: center;">Ingrese su Comando</h1>
+<p>Instrucciones:</p>
+<ul>
+<li>Selecciona el Dispositivo</li>
+<li>Selecciona la Funci&oacute;n</li>
+<li>Ingresa el Valor</li>
+<li>Ingresa el Tipo</li>
+<li>Env&iacute;ala.</li>
+</ul>
+
+	
+
+<form (submit)="registercomando($event)" name="command" style=" text-align: center;">
+    Dispositivo:<br>
     <select name="Maquina">
       <option value="1">Maquina 1</option>
       <option value="2">Maquina 2</option>
@@ -17,10 +29,31 @@
       <option value="5"> Funcion 5</option>
     </select>
     <br>
-    Valor:<br>
-    <input type="number" value="0">
+    <input disabled type="textfield" name="ans" id="com" value="">
+    <br>
+    <input type="button" value="1" onClick="document.command.ans.value+='1'">
+    <input type="button" value="2" onClick="document.command.ans.value+='2'">
+    <input type="button" value="3" onClick="document.command.ans.value+='3'">
+    <br>
+    <input type="button" value="4" onClick="document.command.ans.value+='4'">
+    <input type="button" value="5" onClick="document.command.ans.value+='5'">
+    <input type="button" value="6" onClick="document.command.ans.value+='6'">
+    <br>
+    <input type="button" value="7" onClick="document.command.ans.value+='7'">
+    <input type="button" value="8" onClick="document.command.ans.value+='8'">
+    <input type="button" value="9" onClick="document.command.ans.value+='9'">
+    <br>
+    <input type="button" value="0" onClick="document.command.ans.value+='0'">
+    <input type="button" value="." onClick="document.command.ans.value+='.'">
+    <input type="button" value="Erase" onClick="document.command.ans.value=document.command.ans.value.slice(0, -1)"><br>
+    Unidad:<br>
+    <select name="Unidad">
+        <option value="1">Unidad 1 </option>
+        <option value="2">Unidad 2</option>
+    </select>
     <br>
     <input type="submit" value="Enviar">
 
-  </form>
-</div>
+  
+
+    </form>
