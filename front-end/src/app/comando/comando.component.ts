@@ -18,12 +18,20 @@ export class ComandoComponent implements OnInit {
     var valor =comando.target.elements[2].value;
     var valor_s = valor.toString();
     var unidad =comando.target.elements[3].value;
+    //console.log(valor);
     if(valor_s.split('.').length <= 2){
+      //console.log(1);
       if((Math.abs(valor) <= 100)){
-        if((valor_s.split('.').length == 2 && valor_s.split('.')[1] < 3) || valor_s.split('.').length == 1){
+        //console.log(2);
+        if((valor_s.split('.').length == 2 && valor_s.split('.')[1].length < 3) || valor_s.split('.').length == 1){
             /*begin stuff*/
             console.log('Ingreso Valido');
-            let modelo= new comando(dispositivo,funcion,valor,unidad);
+            //let modelo= new comando(dispositivo,funcion,valor,unidad);
+            console.log(dispositivo);
+            console.log(funcion);
+            console.log(valor);
+            console.log(unidad);
+            console.log('------------');
         }
         else{
           alert('Valor Ingresado Invalido')
