@@ -35,7 +35,7 @@ Dialecto: "postgres"
 + Una vez creada correctamente, es necesario correr las migraciones de Sequelize, dentro de la carpeta back-end, usar el siguiente comando:
 
 ```
-proyecto-ADSW/front-end$ node_modules/.bin/sequelize db:migrate
+proyecto-ADSW/back-end$ node_modules/.bin/sequelize db:migrate
 ```
 
 + Para poder usar el sistema es necesario iniciar el servidor back-end y front-end por separado
