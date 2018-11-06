@@ -8,8 +8,10 @@ module.exports.post = function (req, res) {
 
     let command = Command.create({value:req.body.value, type:req.body.type});
 
-    res.json({"status" : "success"});
     Command.findAll({where: {value:'50'}}).then(users => {console.log(users[0])});
 
     console.log(command.body);
+
+    //res.status(200).send("OK");
+    res.writeHead(200, {'Content-Type': 'application/json'});
 };
