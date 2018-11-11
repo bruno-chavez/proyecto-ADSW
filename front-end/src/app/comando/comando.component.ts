@@ -26,7 +26,6 @@ export class ComandoComponent implements OnInit {
         if((valor_s.split('.').length == 2 && valor_s.split('.')[1].length < 3) || valor_s.split('.').length == 1){
             /*begin stuff*/
             console.log('Ingreso Valido');
-            //let modelo= new comando(dispositivo,funcion,valor,unidad);
             console.log(dispositivo);
             console.log(funcion);
             console.log(valor);
