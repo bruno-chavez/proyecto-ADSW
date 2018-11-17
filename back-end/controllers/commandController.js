@@ -4,14 +4,11 @@ let {Command} = require('../models');
 
 module.exports.post = function (req, res) {
 
-    console.log(req.body);
+    Command.create({
+        value:req.body.valor,
+        type:req.body.tipo
+        });
 
-    let command = Command.create({value:req.body.value, type:req.body.type});
-
-    Command.findAll({where: {value:'50'}}).then(users => {console.log(users[0])});
-
-    console.log(command.body);
-
-    //res.status(200).send("OK");
+    console.log(req.body, "req.body");
     res.writeHead(200, {'Content-Type': 'application/json'});
 };
