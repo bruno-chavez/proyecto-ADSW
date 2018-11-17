@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Comando } from './comando';
-import {CommandService} from "../command.service";
+import {CommandService} from "./command.service";
 
 @Component({
   selector: 'app-comando',

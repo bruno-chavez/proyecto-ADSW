@@ -13,7 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { HistorialComponent } from './historial/historial.component';
 import { ComandoComponent } from './command/comando.component';
 import { UserComponent } from './user/user.component';
-import { CommandService} from "./command.service";
+import { CommandService} from "./command/command.service";
 
 const routes: Routes=[
   {path: '', component: LoginFormComponent},
