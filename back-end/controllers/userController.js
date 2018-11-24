@@ -2,19 +2,16 @@
 
 let {User} = require('../models');
 
-module.exports.list = function (req, res) {
-    //let user = db.define('user').build({name:'Gonzalo'});
-    //let user = db.import('../models/user.js');
-    //console.log(user);
-    //const user = User.create({name:'Gonzalo', password:'pass'});
-    //console.log(req.body.name);
-    //console.log(req.body.email);
-    //console.log(req.body.password);
-    console.log(req.body);
-    console.log('henlo u stinky boi');
+module.exports.post = function (req, res) {
 
-    let user = User.create({name:req.body.name, password:req.body.password, email:req.body.email});
-    //User.findAll({where: {name:'bruno'}}).then(users => {console.log(users[0])});
+    User.create({
+        name:req.body.name,
+        email:req.body.email,
+        password:req.body.password
+    }).then(function (result) {
+        res.json(result);
+    });
 
-    res.writeHead(200, {'Content-Type': 'application/json'});
+    console.log(req.body, "req.body");
+
 };
