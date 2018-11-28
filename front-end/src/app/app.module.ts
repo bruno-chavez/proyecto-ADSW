@@ -11,12 +11,13 @@ import { RouterModule , Routes } from '@angular/router';
 import { RegisterComponent } from './register/register.component';
 import { FormsModule } from '@angular/forms';
 import { HistorialComponent } from './historial/historial.component';
-import { ComandoComponent } from './comando/comando.component';
+import { ComandoComponent } from './command/comando.component';
 import { UserComponent } from './user/user.component';
+import { CommandService} from "./command/command.service";
 
 const routes: Routes=[
-  {path: '',component: LoginFormComponent},
-  {path:'user',component:UserComponent}
+  {path: '', component: LoginFormComponent},
+  {path:'user', component:UserComponent}
   //{path: 'register',component: RegisterComponent}
 
 ];
@@ -40,7 +41,8 @@ const routes: Routes=[
     HttpClientModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [CommandService],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

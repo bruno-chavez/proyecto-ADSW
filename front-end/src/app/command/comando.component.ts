@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Comando } from './comando';
+import {CommandService} from "./command.service";
 
 @Component({
   selector: 'app-comando',
@@ -7,17 +8,16 @@ import { Comando } from './comando';
   styleUrls: ['./comando.component.css']
 })
 export class ComandoComponent implements OnInit {
-
-  constructor() { }
+  constructor(private commandService: CommandService) { }
 
   ngOnInit() {
   }
   registercomando(comando){
-    var dispositivo =comando.target.elements[0].value;
-    var funcion =comando.target.elements[1].value;
-    var valor =comando.target.elements[2].value;
-    var valor_s = valor.toString();
-    var unidad =comando.target.elements[3].value;
+    let dispositivo = comando.target.elements[0].value;
+    let funcion = comando.target.elements[1].value;
+    let valor = comando.target.elements[2].value;
+    let valor_s = valor.toString();
+    let unidad = comando.target.elements[3].value;
     //console.log(valor);
     if(valor_s.split('.').length <= 2){
       //console.log(1);
@@ -26,12 +26,12 @@ export class ComandoComponent implements OnInit {
         if((valor_s.split('.').length == 2 && valor_s.split('.')[1].length < 3) || valor_s.split('.').length == 1){
             /*begin stuff*/
             console.log('Ingreso Valido');
-            let modelo = new Comando(dispositivo,funcion,valor,unidad);
-            console.log(dispositivo);
-            console.log(funcion);
-            console.log(valor);
-            console.log(unidad);
-            console.log(modelo);
+            //let modelo = new Comando(dispositivo,funcion,valor,unidad);
+            console.log(comando, "commando!");
+            console.log(dispositivo, "dispositivo");
+            console.log(funcion, "funcion");
+            console.log(valor, "valor");
+            console.log(unidad, "unidad");
         }
         else{
           alert('Valor Ingresado Invalido')
@@ -44,6 +44,14 @@ export class ComandoComponent implements OnInit {
     else{
       alert("Valor Ingresado Invalido");
     }
+    console.log('holi');
+    let modelo = new Comando(dispositivo,funcion,valor,unidad);
+    this.commandService.postCommand(modelo).subscribe(
+      data => {
+        console.log(data, "objeto enviado");
+        alert('Commando Logueado');
+        // this.router.navigate(['/']);
+      });
     /*console.log(dispositivo);
     console.log(funcion);
     console.log(valor);
