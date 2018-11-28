@@ -16,5 +16,5 @@ module.exports.list = function (req, res) {
     let user = User.create({name:req.body.name, password:req.body.password, email:req.body.email});
     //User.findAll({where: {name:'bruno'}}).then(users => {console.log(users[0])});
 
-    res.json({"status" : "success"});
+    res.writeHead(200, {'Content-Type': 'application/json'});
 };

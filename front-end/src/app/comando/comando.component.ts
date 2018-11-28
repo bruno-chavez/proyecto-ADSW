@@ -26,11 +26,12 @@ export class ComandoComponent implements OnInit {
         if((valor_s.split('.').length == 2 && valor_s.split('.')[1].length < 3) || valor_s.split('.').length == 1){
             /*begin stuff*/
             console.log('Ingreso Valido');
+            let modelo = new Comando(dispositivo,funcion,valor,unidad);
             console.log(dispositivo);
             console.log(funcion);
             console.log(valor);
             console.log(unidad);
-            console.log('------------');
+            console.log(modelo);
         }
         else{
           alert('Valor Ingresado Invalido')

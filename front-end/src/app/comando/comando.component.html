@@ -29,7 +29,7 @@
       <option value="5"> Funcion 5</option>
     </select>
     <br>
-    <input disabled type="textfield" name="ans" id="com" value="">
+    <input disabled type="text" name="ans" id="com" value="">
     <br>
     <input type="button" value="1" onClick="document.command.ans.value+='1'">
     <input type="button" value="2" onClick="document.command.ans.value+='2'">
@@ -52,8 +52,8 @@
         <option value="2">Unidad 2</option>
     </select>
     <br>
-    <input type="submit" value="Enviar">
+    <input (click)="postCommand() " type="submit" value="Enviar">
 
-  
+
 
     </form>
