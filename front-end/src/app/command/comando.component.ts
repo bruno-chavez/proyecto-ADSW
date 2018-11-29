@@ -24,9 +24,7 @@ export class ComandoComponent implements OnInit {
       if((Math.abs(valor) <= 100)){
         //console.log(2);
         if((valor_s.split('.').length == 2 && valor_s.split('.')[1].length < 3) || valor_s.split('.').length == 1){
-            /*begin stuff*/
             console.log('Ingreso Valido');
-            //let modelo = new Comando(dispositivo,funcion,valor,unidad);
             console.log(comando, "commando!");
             console.log(dispositivo, "dispositivo");
             console.log(funcion, "funcion");
@@ -50,11 +48,6 @@ export class ComandoComponent implements OnInit {
       data => {
         console.log(data, "objeto enviado");
         alert('Commando Logueado');
-        // this.router.navigate(['/']);
       });
-    /*console.log(dispositivo);
-    console.log(funcion);
-    console.log(valor);
-    console.log(unidad);*/
   }
 }
