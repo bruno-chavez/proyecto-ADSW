@@ -40,7 +40,7 @@ export class RegisterComponent implements OnInit {
         /*Registrar Usuario */
         this.registerService.postRegister(userp).subscribe(
           data=>{
-          console.log(data,'Usuario Enviado')
+          console.log(data,'Usuario Enviado');
           alert('Usuario')
         });
         
