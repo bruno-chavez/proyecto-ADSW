@@ -11,9 +11,15 @@ module.exports = {
       value: {
         type: Sequelize.INTEGER
       },
-      type: {
+      unit: {
         type: Sequelize.STRING
       },
+        device: {
+            type: Sequelize.INTEGER
+        },
+        function: {
+            type: Sequelize.STRING
+        },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
