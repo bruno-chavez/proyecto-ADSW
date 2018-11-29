@@ -11,7 +11,7 @@ module.exports = {
       name: {
         type: Sequelize.STRING
       },
-      deviceID: {
+      moderatorID: {
         type: Sequelize.INTEGER
       },
       createdAt: {

@@ -2,9 +2,12 @@
 
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
-    name: DataTypes.STRING,
-    email: DataTypes.STRING,
-    password: DataTypes.STRING
+      name: DataTypes.STRING,
+      email: DataTypes.STRING,
+      password: DataTypes.STRING,
+      moderator: DataTypes.BOOLEAN,
+      serial: DataTypes.INTEGER,
+      approved: DataTypes.BOOLEAN
   }, {
       freezeTableName: true,
       tableName: 'User'
