@@ -2,7 +2,7 @@
 
 module.exports = (sequelize, DataTypes) => {
   const Device = sequelize.define('Device', {
-    type: DataTypes.STRING,
+    name: DataTypes.STRING,
     description: DataTypes.STRING
   }, {
       freezeTableName: true,
