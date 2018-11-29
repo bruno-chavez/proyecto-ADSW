@@ -22,6 +22,11 @@ export class RegisterComponent implements OnInit {
     var serial= user.target.elements[4].value;
     /*Registro invalido */
     let userp=new User(username,email,password,false,0,false)
+    this.registerService.validateEmail(userp).subscribe(
+      data=>{
+      console.log(data,'Usuario Enviado')
+      alert('Usuario')
+    });
     if(password!=cpassword){
       alert('Password dont much');
     }
