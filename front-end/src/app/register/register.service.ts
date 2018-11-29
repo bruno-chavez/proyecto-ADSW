@@ -8,8 +8,8 @@ export class RegisterService {
 
   constructor(private http: HttpClient) { }
   validateEmail(user){
-    let modelo = this.http.get('http://localhost:3000/register/' + user.email);
-    
+    console.log('http://localhost:3000/register/' + user.email);
+    return this.http.get('http://localhost:3000/register/' + user.email);
   }
   postRegister(user){
     console.log("command service!", user);

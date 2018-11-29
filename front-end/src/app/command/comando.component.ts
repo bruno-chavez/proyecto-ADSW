@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Comando } from './comando';
-import {CommandService} from "./command.service";
+import { CommandService } from "./command.service";
 
 @Component({
   selector: 'app-comando',
@@ -18,11 +18,8 @@ export class ComandoComponent implements OnInit {
     let valor = comando.target.elements[2].value;
     let valor_s = valor.toString();
     let unidad = comando.target.elements[3].value;
-    //console.log(valor);
     if(valor_s.split('.').length <= 2){
-      //console.log(1);
       if((Math.abs(valor) <= 100)){
-        //console.log(2);
         if((valor_s.split('.').length == 2 && valor_s.split('.')[1].length < 3) || valor_s.split('.').length == 1){
             console.log('Ingreso Valido');
             console.log(comando, "commando!");

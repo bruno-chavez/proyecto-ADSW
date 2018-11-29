@@ -4,6 +4,6 @@ export class Comando {
         public dispositivo: string,
         public funcion: string ,
         public valor : number,
-        public tipo : string
+        public unidad : string
     ){ }
 }
