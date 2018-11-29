@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http'
 
+
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { LoginFormComponent } from './login-form/login-form.component';
@@ -17,8 +18,8 @@ import { CommandService} from "./command/command.service";
 
 const routes: Routes=[
   {path: '', component: LoginFormComponent},
-  {path:'user', component:UserComponent}
-  //{path: 'register',component: RegisterComponent}
+  {path:'user', component:UserComponent},
+  {path: 'register',component: RegisterComponent}
 
 ];
 
