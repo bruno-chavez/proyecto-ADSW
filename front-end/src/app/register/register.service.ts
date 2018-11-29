@@ -11,5 +11,8 @@ export class RegisterService {
     let modelo = this.http.get('http://localhost:3000/user/' + user.email);
     
   }
-  postRegister(){}
+  postRegister(user){
+    console.log("command service!", user);
+    return this.http.post('http://localhost:3000/user', user)
+  }
 }

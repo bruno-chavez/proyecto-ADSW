@@ -15,6 +15,7 @@ import { HistorialComponent } from './historial/historial.component';
 import { ComandoComponent } from './command/comando.component';
 import { UserComponent } from './user/user.component';
 import { CommandService} from "./command/command.service";
+import { RegisterService} from "./register/register.service";
 
 const routes: Routes=[
   {path: '', component: LoginFormComponent},
@@ -42,7 +43,10 @@ const routes: Routes=[
     HttpClientModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [CommandService],
+  providers: [
+    CommandService,
+    RegisterService
+  ],
   bootstrap: [AppComponent]
 })
 

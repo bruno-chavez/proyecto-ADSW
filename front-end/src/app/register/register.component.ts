@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../user/user'
+import { User } from '../user/user';
+import { RegisterService } from "./register.service"
 
 @Component({
   selector: 'app-register',
@@ -8,7 +9,7 @@ import { User } from '../user/user'
 })
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
+  constructor(private registerService:RegisterService) { }
 
   ngOnInit() {
   }
@@ -20,6 +21,7 @@ export class RegisterComponent implements OnInit {
     var cpassword= user.target.elements[3].value;
     var serial= user.target.elements[4].value;
     /*Registro invalido */
+    let userp=new User(username,email,password,false,0,false)
     if(password!=cpassword){
       alert('Password dont much');
     }
@@ -31,7 +33,12 @@ export class RegisterComponent implements OnInit {
       }
       else{
         /*Registrar Usuario */
-        let userr=new User(username,email,password,true,0,true)
+        this.registerService.postRegister(userp).subscribe(
+          data=>{
+          console.log(data,'Usuario Enviado')
+          alert('Usuario')
+        });
+        
       }
     }
   }
