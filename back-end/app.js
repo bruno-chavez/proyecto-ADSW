@@ -8,6 +8,10 @@ let logger = require('morgan');
 let indexRouter = require('./routes/index');
 let userRouter = require('./routes/users');
 let commandRouter = require('./routes/command');
+let historyRouter = require('./routes/history');
+let registerRouter = require('./routes/register');
+let loginRouter = require('./routes/login');
+
 let cors = require('cors');
 
 let app = express();
@@ -23,5 +27,9 @@ app.use(cors());
 app.use('/', indexRouter);
 app.use('/user', userRouter);
 app.use('/command', commandRouter);
+app.use('/history', historyRouter);
+app.use('/login', loginRouter);
+app.use('/register', registerRouter);
+
 
 module.exports = app;
