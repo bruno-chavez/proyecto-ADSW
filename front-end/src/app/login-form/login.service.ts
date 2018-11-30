@@ -9,6 +9,6 @@ export class LoginService {
   constructor( private http:HttpClient) { }
   LoginUser(email,password){
     console.log('http://localhost:3000/login/' +email);
-    return this.http.get('http://localhost:3000/login/' + email+'-'+password);
+    return this.http.get('http://localhost:3000/login/' + email);
   }
 }
