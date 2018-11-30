@@ -16,6 +16,7 @@ import { ComandoComponent } from './command/comando.component';
 import { UserComponent } from './user/user.component';
 import { CommandService} from "./command/command.service";
 import { RegisterService} from "./register/register.service";
+import { LoginService } from "./login-form/login.service"
 
 const routes: Routes=[
   {path: '', component: LoginFormComponent},
@@ -45,7 +46,8 @@ const routes: Routes=[
   ],
   providers: [
     CommandService,
-    RegisterService
+    RegisterService,
+    LoginService
   ],
   bootstrap: [AppComponent]
 })

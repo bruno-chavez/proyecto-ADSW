@@ -22,20 +22,37 @@ export class RegisterComponent implements OnInit {
     var serial= user.target.elements[4].value;
     /*Registro invalido */
     let userp=new User(username,email,password,false,0,false);
-    let modelo = this.registerService.validateEmail(userp).subscribe(
+    /*let modelo = this.registerService.validateEmail(userp).subscribe(
       data=>{
       console.log(data,'Usuario Enviado');
       alert('Usuario')
-    });
-    console.log(modelo, 'modelo');
+    });*/
+    /*console.log(modelo, 'modelo');*/
     if(password!=cpassword){
       alert('Password dont much');
     }
+    else if(username==""){
+      alert('Username No puede estar vacio ')
+    }
+    else if(email==""){
+      alert('Email No puede estar vacio ')
+    }
+    else if(password==""){
+      alert('Password No puede estar vacio ')
+    }
     /*Registro Valido */
+    else if (email.split('@').length<2){
+      alert('Formato de Email Invalido')
+    }
     else{
       if(serial.length>0){
         /*Registrar Propietario */
         let userr=new User(username,email,password,false,serial,true)
+        this.registerService.postRegister(userr).subscribe(
+          data=>{
+          console.log(data,'Usuario Enviado');
+          alert('Usuario')
+        });
       }
       else{
         /*Registrar Usuario */
