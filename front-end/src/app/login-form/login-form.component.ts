@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from './login.service'
 
 @Component({
   selector: 'app-login-form',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginFormComponent implements OnInit {
 
-  constructor() { }
+  constructor( private loginService:LoginService) { }
 
   ngOnInit() {
   }
@@ -15,12 +16,13 @@ export class LoginFormComponent implements OnInit {
     user.preventDefault();
     var email=user.target.elements[0].value;
     var password= user.target.elements[1].value;
-    if (email.split('@')[1] == 'empresa.com'){
-      console.log('Email Autorizado');
-    }
-    else {
-      alert('Este Correo No Esta Autorizado Para Hacer Login');
-    }
+    let model= this.loginService.LoginUser(email,password).subscribe(
+      data=>{
+      console.log(data,'Usuario Enviado');
+      alert('Usuario')
+    });
+    /*  Accion Si Login es Correcto */
+    
     
     
   }
