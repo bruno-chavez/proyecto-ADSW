@@ -12,11 +12,17 @@ module.exports.post = function (req, res) {
         approved: req.body.approved
     }).then(function (result) {
         res.json(result);
+    }).catch(function (err) {
+        console.log(err, 'error');
+        res.json('el email ya se encuentra ocupado');
     });
 };
 
 module.exports.get = function (req, res) {
-    console.log(req.params.email, 'hoi email');
+    console.log(req.params.email);
+    let user = User.findAll({where: {email: req.params.email}});
+    console.log(user, 'user');
+    //console.log(req.params.email, 'hoi email');
     res.json('hoi');
 
 };

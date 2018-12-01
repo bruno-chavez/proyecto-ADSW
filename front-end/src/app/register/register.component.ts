@@ -49,15 +49,15 @@ export class RegisterComponent implements OnInit {
         /*Registrar Propietario */
         console.log('hoi');
         let userr = new User(username,email,password,false,serial,true);
-        let comparar = this.registerService.validateEmail(userp).subscribe(
-          data=>{
-            console.log('funciona!');
-          });
-        console.log(comparar);
         this.registerService.postRegister(userr).subscribe(
           data=>{
-          console.log(data,'Usuario Enviado');
-          alert('Usuario')
+            if (typeof data != "string"){
+              console.log(data,'Usuario Enviado');
+              alert('Usuario Enviado')
+            } else {
+              console.log(data,'error');
+              alert(data)
+            }
         });
       }
       else{
