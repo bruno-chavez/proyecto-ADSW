@@ -6,7 +6,6 @@ module.exports.get = function (req, res) {
 
     User.findAll({where: {id: req.params.moderator}}).then( function(moderator) {
         User.findAll({where: {id: req.params.user}}).then( function(user) {
-
             moderator[0].update({
                 moderator: false
             }).then(() => {});

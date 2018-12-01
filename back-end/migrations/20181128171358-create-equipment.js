@@ -14,6 +14,9 @@ module.exports = {
       moderatorID: {
         type: Sequelize.INTEGER
       },
+        owner: {
+        type: Sequelize.INTEGER
+        },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

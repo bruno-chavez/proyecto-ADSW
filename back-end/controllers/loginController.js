@@ -6,15 +6,15 @@ let bcrypt = require('bcrypt');
 
 module.exports.post = function (req, res) {
 
-    User.findAll({where: {email: req.body.email}}).then( function(data){
+    User.findAll({where: {email: req.body.email}}).then( function(user){
 
-        console.log(data[0].dataValues.password, 'hash');
+        console.log(user[0].dataValues.password, 'hash');
         console.log(req.body.email, 'email');
         console.log(req.body.password, 'pass');
 
-        let compare = bcrypt.compareSync(req.body.password, data[0].dataValues.password);
+        let compare = bcrypt.compareSync(req.body.password, user[0].dataValues.password);
         if (compare === true) {
-            res.json('Acceso autorizado');
+            res.json(user[0]);
         } else {
             res.json('Acceso denegado');
         }
