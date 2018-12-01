@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginService } from './login.service'
+import { LoginService } from './login.service';
+import { Router }  from '@angular/router'
 
 @Component({
   selector: 'app-login-form',
@@ -8,7 +9,10 @@ import { LoginService } from './login.service'
 })
 export class LoginFormComponent implements OnInit {
 
-  constructor( private loginService:LoginService) { }
+  constructor( 
+    private loginService:LoginService,
+    private router:Router
+    ) { }
 
   ngOnInit() {
   }
@@ -19,8 +23,9 @@ export class LoginFormComponent implements OnInit {
     let modelo = {email: email, password: password};
     this.loginService.LoginUser(modelo).subscribe(
       data=>{
-      console.log(data);
-      alert(data)
+       if (data=='Acceso autorizado'){
+         this.router.navigate(['/user']);
+       }
     });
     /*  Accion Si Login es Correcto */
     

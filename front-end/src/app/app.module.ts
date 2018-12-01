@@ -21,7 +21,8 @@ import { LoginService } from "./login-form/login.service"
 const routes: Routes=[
   {path: '', component: LoginFormComponent},
   {path:'user', component:UserComponent},
-  {path: 'register',component: RegisterComponent}
+  {path: 'register',component: RegisterComponent
+   }
 
 ];
 
