@@ -12,7 +12,7 @@ export class RegisterService {
     return this.http.get('http://localhost:3000/register/' + user.email);
   }
   postRegister(user){
-    console.log("command service!", user);
+    console.log("user service!", user);
     return this.http.post('http://localhost:3000/register', user)
   }
 }

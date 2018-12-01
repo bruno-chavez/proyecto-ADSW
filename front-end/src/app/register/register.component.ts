@@ -48,7 +48,12 @@ export class RegisterComponent implements OnInit {
       if(serial>0){
         /*Registrar Propietario */
         console.log('hoi');
-        let userr=new User(username,email,password,false,serial,true);
+        let userr = new User(username,email,password,false,serial,true);
+        let comparar = this.registerService.validateEmail(userp).subscribe(
+          data=>{
+            console.log('funciona!');
+          });
+        console.log(comparar);
         this.registerService.postRegister(userr).subscribe(
           data=>{
           console.log(data,'Usuario Enviado');
