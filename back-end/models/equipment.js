@@ -3,7 +3,8 @@
 module.exports = (sequelize, DataTypes) => {
   const Equipment = sequelize.define('Equipment', {
       name: DataTypes.STRING,
-      moderatorID: DataTypes.INTEGER
+      moderatorID: DataTypes.INTEGER,
+      owner: DataTypes.INTEGER,
   }, {
       freezeTableName: true,
       tableName: 'Equipment'
