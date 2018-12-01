@@ -58,7 +58,7 @@ export class RegisterComponent implements OnInit {
           data=>{
             if (typeof data != "string"){
               console.log(data,'Usuario Enviado');
-              alert('Usuario Enviado')
+              this.router.navigate(['/']);
             } else {
               console.log(data,'error');
               alert(data)
@@ -71,7 +71,7 @@ export class RegisterComponent implements OnInit {
           data=>{
             if (typeof data != "string"){
               console.log(data,'Usuario Enviado');
-              //alert('Usuario Enviado')
+              this.router.navigate(['/']);
               } else {
               console.log(data,'error');
               alert(data)
@@ -79,7 +79,7 @@ export class RegisterComponent implements OnInit {
         });
       
       }
-      this.router.navigate(['/']);
+      
     }
   }
 }
