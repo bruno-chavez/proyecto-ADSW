@@ -15,11 +15,11 @@ export class RegisterComponent implements OnInit {
   }
   registerUser(user){
     user.preventDefault();
-    var username=user.target.elements[0].value;
-    var email=user.target.elements[1].value;
-    var password= user.target.elements[2].value;
-    var cpassword= user.target.elements[3].value;
-    var serial= user.target.elements[4].value;
+    let username = user.target.elements[0].value;
+    let email = user.target.elements[1].value;
+    let password = user.target.elements[2].value;
+    let cpassword = user.target.elements[3].value;
+    let serial = user.target.elements[4].value;
     /*Registro invalido */
     let userp=new User(username,email,password,false,0,false);
     /*let modelo = this.registerService.validateEmail(userp).subscribe(
@@ -45,9 +45,10 @@ export class RegisterComponent implements OnInit {
       alert('Formato de Email Invalido')
     }
     else{
-      if(serial.length>0){
+      if(serial>0){
         /*Registrar Propietario */
-        let userr=new User(username,email,password,false,serial,true)
+        console.log('hoi');
+        let userr=new User(username,email,password,false,serial,true);
         this.registerService.postRegister(userr).subscribe(
           data=>{
           console.log(data,'Usuario Enviado');
