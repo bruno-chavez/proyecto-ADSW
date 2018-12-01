@@ -7,8 +7,8 @@ import { HttpClient } from '@angular/common/http';
 export class LoginService {
 
   constructor( private http:HttpClient) { }
-  LoginUser(email,password){
-    console.log('http://localhost:3000/login/' +email);
-    return this.http.get('http://localhost:3000/login/' + email);
+  LoginUser(modelo){
+    console.log('http://localhost:3000/login/');
+    return this.http.post('http://localhost:3000/login', modelo);
   }
 }

@@ -14,12 +14,13 @@ export class LoginFormComponent implements OnInit {
   }
   loginUser(user){
     user.preventDefault();
-    var email=user.target.elements[0].value;
-    var password= user.target.elements[1].value;
-    let model= this.loginService.LoginUser(email,password).subscribe(
+    let email = user.target.elements[0].value;
+    let password = user.target.elements[1].value;
+    let modelo = {email: email, password: password};
+    this.loginService.LoginUser(modelo).subscribe(
       data=>{
-      console.log(data,'Usuario Enviado');
-      alert('Usuario')
+      console.log(data);
+      alert(data)
     });
     /*  Accion Si Login es Correcto */
     
