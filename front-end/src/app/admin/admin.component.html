@@ -1,0 +1,27 @@
+<div>
+  <h1> Lista de Usuarios Pendiente</h1>
+</div>
+<table style="width:100%">
+  <tr>
+    <th>Nombre</th>
+    <th>Email</th>
+    <th>Aceptar</th>
+    <th>Rechazar</th>
+  </tr>
+  <tr *ngFor ="let user of userList">
+    <td>{{user.name}}</td>
+    <td>{{user.email}}</td>
+    <td>
+      <form (submit)="acceptUser($event)" name="aceptar" style=" text-align: center;">
+        <input type="hidden" name="user" id="userA" value="{{user.email}}">
+        <input type="submit" value="Enviar">
+      </form>
+    </td>
+    <td>
+      <form (submit)="rejectUser($event)" name="rechazar" style=" text-align: center;">
+        <input type="hidden" name="user" id="userR" value="{{user.id}}">
+        <input type="submit" value="Enviar" >
+      </form>
+    </td>
+  </tr>
+</table>

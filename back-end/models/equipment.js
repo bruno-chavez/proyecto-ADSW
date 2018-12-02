@@ -5,12 +5,14 @@ module.exports = (sequelize, DataTypes) => {
       name: DataTypes.STRING,
       moderatorID: DataTypes.INTEGER,
       owner: DataTypes.INTEGER,
+      size: DataTypes.INTEGER
   }, {
       freezeTableName: true,
       tableName: 'Equipment'
   });
   Equipment.associate = function(models) {
     // associations can be defined here
+      Equipment.hasMany(sequelize.model('User'), {as: 'Users'})
   };
   return Equipment;
 };

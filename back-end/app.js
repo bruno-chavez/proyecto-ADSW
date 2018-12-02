@@ -12,6 +12,8 @@ let commandRouter = require('./routes/command');
 let registerRouter = require('./routes/register');
 let loginRouter = require('./routes/login');
 let moderatorRouter = require('./routes/moderator');
+let equipmentRouter = require('./routes/equipment');
+let adminRouter = require('./routes/admin');
 
 
 let cors = require('cors');
@@ -33,6 +35,8 @@ app.use('/command', commandRouter);
 app.use('/login', loginRouter);
 app.use('/register', registerRouter);
 app.use('/moderator', moderatorRouter);
+app.use('/equipment', equipmentRouter);
+app.use('/admin', adminRouter);
 
 
 

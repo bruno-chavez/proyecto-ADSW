@@ -17,6 +17,9 @@ module.exports = {
         owner: {
         type: Sequelize.INTEGER
         },
+        size: {
+            type: Sequelize.INTEGER
+        },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
