@@ -21,9 +21,7 @@ module.exports.post = function (req, res) {
 };
 
 module.exports.delete = function (req, res) {
-    console.log("estoy aqui");
-
-    User.destroy({where: {id: req.body.id}}).then(() => {
+    User.destroy({where: {id: req.params.id}}).then(data => {
         res.json('Usuario Eliminado');
     });
 };

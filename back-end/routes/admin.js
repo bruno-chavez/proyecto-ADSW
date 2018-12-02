@@ -8,6 +8,6 @@ router.get('/', adminController.get);
 
 router.post('/', adminController.post);
 
-router.delete('/', adminController.delete);
+router.delete('/:id', adminController.delete);
 
 module.exports = router;
