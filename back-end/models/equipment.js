@@ -5,6 +5,7 @@ module.exports = (sequelize, DataTypes) => {
       name: DataTypes.STRING,
       moderatorID: DataTypes.INTEGER,
       owner: DataTypes.INTEGER,
+      size: DataTypes.INTEGER
   }, {
       freezeTableName: true,
       tableName: 'Equipment'
