@@ -18,6 +18,9 @@ module.exports.post = function (req, res) {
         } else {
             res.json('Acceso denegado');
         }
+    }).catch(function (err) {
+        console.log(err, 'error');
+        res.json('login rechazado');
     });
 
 };

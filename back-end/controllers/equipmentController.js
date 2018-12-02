@@ -11,7 +11,7 @@ module.exports.get = function (req, res) {
         owner: req.params.id,
     }).then(function (result) {
         User.findAll({where: {email: 'q@q.q'}}).then( function(data) {
-            result.setUsers([data[0].id]).then(q => {
+            result.setUsers([data[0].id]).then(() => {
                 console.log(result.getUsers().then(tables =>{
                     console.log(tables, 'hoi');
                     res.json(tables );
