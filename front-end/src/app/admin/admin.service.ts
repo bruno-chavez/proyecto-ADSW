@@ -8,8 +8,11 @@ export class AdminService {
 
   constructor(private http: HttpClient) { }
 
-  getCommand(){
-    console.log("usuarios necesitados :o 124");
+  getUsers(){
     return this.http.get('http://localhost:3000/admin')
+  }
+
+  acceptUser(email){
+    return this.http.post('http://localhost:3000/admin', email)
   }
 }
