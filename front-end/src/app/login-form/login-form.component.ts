@@ -28,8 +28,10 @@ export class LoginFormComponent implements OnInit {
        if (typeof data != "string"){ //Login Correcto
          //this.router.navigate(['/user']);
          console.log(data);
-         let user =new User(data[0],data[2],'notview',data[4],data[5],data[6]);
-         console.log(user);
+         var arryFormData = Array.prototype.slice.call(data);
+         console.log(arryFormData);
+         //let user =new User(data[0],data[2],'notview',data[4],data[5],data[6]);
+         //console.log(user);
        }
        else{ //Login Incorrecto
          alert('Datos Incorrectos');
