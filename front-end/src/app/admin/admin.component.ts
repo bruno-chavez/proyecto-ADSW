@@ -28,8 +28,6 @@ export class AdminComponent implements OnInit {
 
   acceptUser(userID){
     let email = userID.target.elements[0].value;
-    //let accept = true;
-    //let equip = -1;
     let objeto = {email: email};
     console.log(email)
     this.adminService.acceptUser(objeto).subscribe(
@@ -40,7 +38,11 @@ export class AdminComponent implements OnInit {
 
   rejectUser(userID){
     let id = userID.target.elements[0].value;
-    //implementar rechazo :(
+    let userD = {id: id};
+    this.adminService.rejectUser(userD).subscribe(
+      data => {
+        console.log(data, "user");
+      });
   }
 
 

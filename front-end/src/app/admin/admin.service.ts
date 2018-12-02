@@ -15,4 +15,9 @@ export class AdminService {
   acceptUser(email){
     return this.http.post('http://localhost:3000/admin', email)
   }
+
+  rejectUser(id){
+    console.log(id);
+    return this.http.delete('http://localhost:3000/admin', id)
+  }
 }
