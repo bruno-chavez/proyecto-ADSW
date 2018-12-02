@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../user/user';
-import { RegisterService } from "./register.service"
+import { RegisterService } from "./register.service";
+import { Router } from "@angular/router"
+
 
 @Component({
   selector: 'app-register',
@@ -9,7 +11,10 @@ import { RegisterService } from "./register.service"
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private registerService:RegisterService) { }
+  constructor(
+    private registerService:RegisterService,
+    private router:Router
+    ) { }
 
   ngOnInit() {
   }
@@ -53,7 +58,7 @@ export class RegisterComponent implements OnInit {
           data=>{
             if (typeof data != "string"){
               console.log(data,'Usuario Enviado');
-              alert('Usuario Enviado')
+              this.router.navigate(['/']);
             } else {
               console.log(data,'error');
               alert(data)
@@ -64,11 +69,17 @@ export class RegisterComponent implements OnInit {
         /*Registrar Usuario */
         this.registerService.postRegister(userp).subscribe(
           data=>{
-          console.log(data,'Usuario Enviado');
-          alert('Usuario')
+            if (typeof data != "string"){
+              console.log(data,'Usuario Enviado');
+              this.router.navigate(['/']);
+              } else {
+              console.log(data,'error');
+              alert(data)
+            }
         });
-        
+      
       }
+      
     }
   }
 }

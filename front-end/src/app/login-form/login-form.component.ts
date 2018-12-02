@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginService } from './login.service'
+import { LoginService } from './login.service';
+import { Router }  from '@angular/router';
+import { User } from "../user/user"
+
 
 @Component({
   selector: 'app-login-form',
@@ -8,7 +11,10 @@ import { LoginService } from './login.service'
 })
 export class LoginFormComponent implements OnInit {
 
-  constructor( private loginService:LoginService) { }
+  constructor( 
+    private loginService:LoginService,
+    private router:Router
+    ) { }
 
   ngOnInit() {
   }
@@ -19,10 +25,17 @@ export class LoginFormComponent implements OnInit {
     let modelo = {email: email, password: password};
     this.loginService.LoginUser(modelo).subscribe(
       data=>{
-      console.log(data);
-      alert(data)
+       if (typeof data != "string"){ //Login Correcto
+         //this.router.navigate(['/user']);
+         console.log(data);
+         let user =new User(data[0],data[2],'notview',data[4],data[5],data[6]);
+         console.log(user);
+       }
+       else{ //Login Incorrecto
+         alert('Datos Incorrectos');
+       }
     });
-    /*  Accion Si Login es Correcto */
+   
     
     
     
