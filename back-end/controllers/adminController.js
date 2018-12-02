@@ -19,3 +19,11 @@ module.exports.post = function (req, res) {
         res.json(user);
     });
 };
+
+module.exports.delete = function (req, res) {
+
+    User.destroy({where: {id: req.body.id}}).then(() => {
+        res.json('Usuario Eliminado');
+    });
+};
+
