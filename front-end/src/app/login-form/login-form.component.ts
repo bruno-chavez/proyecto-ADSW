@@ -27,10 +27,11 @@ export class LoginFormComponent implements OnInit {
     this.loginService.LoginUser(objeto).subscribe(
       response=>{
        if (typeof response != "string"){ //Login Correcto
-         //this.router.navigate(['/user']);
+         
          console.log(response);
          let user = new User(response[0],response[2],'notview',response[4],response[5],response[6]);
          console.log(user);
+         this.router.navigate(['/user']);
        }
        else{ //Login Incorrecto
          alert(response);
