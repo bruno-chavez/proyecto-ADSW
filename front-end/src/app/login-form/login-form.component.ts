@@ -22,17 +22,18 @@ export class LoginFormComponent implements OnInit {
     user.preventDefault();
     let email = user.target.elements[0].value;
     let password = user.target.elements[1].value;
-    let modelo = {email: email, password: password};
-    this.loginService.LoginUser(modelo).subscribe(
-      data=>{
-       if (typeof data != "string"){ //Login Correcto
+    let objeto = {email: email, password: password};
+
+    this.loginService.LoginUser(objeto).subscribe(
+      response=>{
+       if (typeof response != "string"){ //Login Correcto
          //this.router.navigate(['/user']);
-         console.log(data);
-         let user =new User(data[0],data[2],'notview',data[4],data[5],data[6]);
+         console.log(response);
+         let user = new User(response[0],response[2],'notview',response[4],response[5],response[6]);
          console.log(user);
        }
        else{ //Login Incorrecto
-         alert('Datos Incorrectos');
+         alert(response);
        }
     });
    
