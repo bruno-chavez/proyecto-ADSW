@@ -53,3 +53,11 @@ proyecto-ADSW/front-end$ npm start
 ```
 
 Una vez realizados todos estos pasos en el orden dado, se puede usar la pagina de manera correcta.
+
+# Rutas
+
+Hasta el momento las siguientes rutan estan funcionando correctamente, donde cada una es parte de una historia de usuario que se pide para cada entrega.
+
+```/command``` Es donde los usuarios envian comandos a los equipos/dispositivos.
+
+```/admin``` Es donde se realiza la aprobacion o rechazo de usuarios registrados.
