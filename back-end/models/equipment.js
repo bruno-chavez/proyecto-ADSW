@@ -1,5 +1,7 @@
 'use strict';
 
+let {User} = require('./user');
+
 module.exports = (sequelize, DataTypes) => {
   const Equipment = sequelize.define('Equipment', {
       name: DataTypes.STRING,
@@ -11,6 +13,7 @@ module.exports = (sequelize, DataTypes) => {
   });
   Equipment.associate = function(models) {
     // associations can be defined here
+      Equipment.hasMany(sequelize.model('User'), {as: 'Users'})
   };
   return Equipment;
 };
