@@ -31,6 +31,12 @@ module.exports = {
           type: Sequelize.BOOLEAN,
             defaultValue: false
         },
+        EquipmentId: {
+            type: Sequelize.INTEGER,
+            references: {
+                model: 'Equipment',
+                key: 'id'
+            }},
         createdAt: {
           allowNull: false,
             type: Sequelize.DATE
