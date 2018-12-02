@@ -17,6 +17,6 @@ export class AdminService {
   }
 
   rejectUser(id){
-    return this.http.delete('http://localhost:3000/admin'+id)
+    return this.http.delete('http://localhost:3000/admin/'+id)
   }
 }
