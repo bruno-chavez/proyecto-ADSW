@@ -16,7 +16,6 @@ let equipmentRouter = require('./routes/equipment');
 let adminRouter = require('./routes/admin');
 
 
-
 let cors = require('cors');
 
 let app = express();

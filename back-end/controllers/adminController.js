@@ -4,11 +4,7 @@ let {User} = require('../models');
 
 module.exports.get = function (req, res) {
 
-    User.findAll({where: {id: req.params.id}}).then( function(data) {
-        let user = data[0];
-        res.json(user);
+    User.findAll({where: {approved: false}}).then( function(usersList) {
+        res.json(usersList);
     });
-
-    console.log(req.params.id, 'hoi');
-
 };

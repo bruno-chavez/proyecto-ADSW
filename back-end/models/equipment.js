@@ -1,7 +1,5 @@
 'use strict';
 
-let {User} = require('./user');
-
 module.exports = (sequelize, DataTypes) => {
   const Equipment = sequelize.define('Equipment', {
       name: DataTypes.STRING,
