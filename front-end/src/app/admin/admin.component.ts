@@ -38,8 +38,7 @@ export class AdminComponent implements OnInit {
 
   rejectUser(userID){
     let id = userID.target.elements[0].value;
-    let userD = {id: id};
-    this.adminService.rejectUser(userD).subscribe(
+    this.adminService.rejectUser(id).subscribe(
       data => {
         console.log(data, "user");
       });

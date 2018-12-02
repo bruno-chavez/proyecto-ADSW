@@ -10,6 +10,7 @@ module.exports.get = function (req, res) {
 };
 
 module.exports.post = function (req, res) {
+    console.log("holaaaaaaa")
 
     User.findAll({where: {email: req.body.email}}).then( function(user) {
         user[0].update({
@@ -21,7 +22,6 @@ module.exports.post = function (req, res) {
 };
 
 module.exports.delete = function (req, res) {
-    console.log("estoy aqui");
 
     User.destroy({where: {id: req.body.id}}).then(() => {
         res.json('Usuario Eliminado');
