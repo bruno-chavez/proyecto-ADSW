@@ -39,7 +39,6 @@ export class ComandoComponent implements OnInit {
     else{
       alert("Valor Ingresado Invalido");
     }
-    console.log('holi');
     let modelo = new Comando(dispositivo,funcion,valor,unidad);
     this.commandService.postCommand(modelo).subscribe(
       data => {
