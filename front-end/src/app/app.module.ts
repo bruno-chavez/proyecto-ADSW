@@ -16,11 +16,15 @@ import { ComandoComponent } from './command/comando.component';
 import { UserComponent } from './user/user.component';
 import { CommandService} from "./command/command.service";
 import { RegisterService} from "./register/register.service";
+import { LoginService } from "./login-form/login.service";
+import { AdminComponent } from './admin/admin.component';
+import { AdminService} from "./admin/admin.service";
 
 const routes: Routes=[
   {path: '', component: LoginFormComponent},
   {path:'user', component:UserComponent},
-  {path: 'register',component: RegisterComponent}
+  {path: 'register',component: RegisterComponent},
+  {path: 'admin', component: AdminComponent}
 
 ];
 
@@ -34,7 +38,8 @@ const routes: Routes=[
     RegisterComponent,
     HistorialComponent,
     ComandoComponent,
-    UserComponent
+    UserComponent,
+    AdminComponent
     
   ],
   imports: [
@@ -45,7 +50,9 @@ const routes: Routes=[
   ],
   providers: [
     CommandService,
-    RegisterService
+    RegisterService,
+    LoginService,
+    AdminService
   ],
   bootstrap: [AppComponent]
 })
