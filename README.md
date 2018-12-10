@@ -58,6 +58,11 @@ Una vez realizados todos estos pasos en el orden dado, se puede usar la pagina d
 
 Hasta el momento las siguientes rutan estan funcionando correctamente, donde cada una es parte de una historia de usuario que se pide para cada entrega.
 
-```/command``` Es donde los usuarios envian comandos a los equipos/dispositivos.
+```/``` Login para usuarios y moderadores, si bien no es parte de una historia de usuario, es necesario para que 
+estas sean implementadas correctamente.
 
-```/admin``` Es donde se realiza la aprobacion o rechazo de usuarios registrados.
+```/user``` Es donde los usuarios envian comandos a los equipos/dispositivos. 
+Equivale a la historia de usuario 'Ingresar Comando'.
+
+```/admin``` Es donde se realiza la aprobacion o rechazo de usuarios registrados. 
+Equivale a la historia de usuario 'Aprobar Usuarios'.
