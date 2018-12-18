@@ -4,7 +4,6 @@ let { User } = require('../models');
 let bcrypt = require('bcrypt');
 
 module.exports.post = function (req, res) {
-
     let hashedPassword = bcrypt.hashSync(req.body.password, 8);
 
     User.create({

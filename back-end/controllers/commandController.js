@@ -10,6 +10,7 @@ module.exports.post = function (req, res) {
         device: req.body.dispositivo,
         function: req.body.funcion
         }).then(function (result) {
+            console.log(req.sessionID);
             res.json(result);
     });
 };

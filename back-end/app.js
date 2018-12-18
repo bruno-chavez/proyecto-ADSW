@@ -4,6 +4,7 @@ let express = require('express');
 let path = require('path');
 let cookieParser = require('cookie-parser');
 let logger = require('morgan');
+let session = require('express-session');
 
 let indexRouter = require('./routes/index');
 //let userRouter = require('./routes/users');
@@ -14,7 +15,9 @@ let loginRouter = require('./routes/login');
 let moderatorRouter = require('./routes/moderator');
 let equipmentRouter = require('./routes/equipment');
 let adminRouter = require('./routes/admin');
+let isAdminRouter = require('./routes/isAdmin');
 let adminLoginRouter = require('./routes/adminLogin');
+let logoutRouter = require('./routes/logout');
 
 
 let cors = require('cors');
@@ -27,7 +30,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(cors());
+app.use(cors({origin: ["http://localhost:4200"], credentials: true}));
+app.use(session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: true
+}));
+
 
 app.use('/', indexRouter);
 //app.use('/user', userRouter);
@@ -39,7 +48,7 @@ app.use('/moderator', moderatorRouter);
 app.use('/equipment', equipmentRouter);
 app.use('/admin', adminRouter);
 app.use('/adminlogin', adminLoginRouter);
-
-
+app.use('/logout', logoutRouter);
+app.use('/isadmin', isAdminRouter);
 
 module.exports = app;
