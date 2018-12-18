@@ -17,7 +17,7 @@ module.exports.post = function (req, res) {
             let compare = bcrypt.compareSync(req.body.password, user[0].dataValues.password);
             if (compare === true) {
                 req.session.user = user[0];
-                console.log(req.sessionID);
+                console.log(req.session);
                 req.session.access = 'user';
                 res.json(user[0]);
             } else {
