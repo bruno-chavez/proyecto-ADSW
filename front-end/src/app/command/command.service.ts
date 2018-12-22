@@ -12,7 +12,7 @@ export class CommandService {
 
   postCommand(command){
     console.log("command service!", command);
-    return this.http.post('http://localhost:3000/command', command)
+    return this.http.post('http://localhost:3000/command', command,{withCredentials: true})
   }
 
 }

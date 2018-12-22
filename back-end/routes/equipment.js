@@ -4,6 +4,6 @@ let express = require('express');
 let router = express.Router();
 let equipmentController = require('../controllers/equipmentController');
 
-router.get('/:id', equipmentController.get);
+router.post('/', equipmentController.post);
 
 module.exports = router;

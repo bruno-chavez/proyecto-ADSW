@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminService} from "./admin.service";
+import { Router} from "@angular/router";
 import {User} from "../user/user";
 
 @Component({
@@ -11,10 +12,13 @@ export class AdminComponent implements OnInit {
 
   userList: Object;
 
-  constructor(private adminService: AdminService) { }
+  constructor(private adminService: AdminService,
+              private router: Router) { }
   ngOnInit() {
     this.getData();
   }
+
+
 
   getData() {
     this.adminService.getUsers()
@@ -29,11 +33,14 @@ export class AdminComponent implements OnInit {
   acceptUser(userID){
     let email = userID.target.elements[0].value;
     let objeto = {email: email};
-    console.log(email)
+    console.log(email);
     this.adminService.acceptUser(objeto).subscribe(
       data => {
         console.log(data, "user");
       });
+    this.router.routeReuseStrategy.shouldReuseRoute = function () {
+      return false;
+    };
   }
 
   rejectUser(userID){

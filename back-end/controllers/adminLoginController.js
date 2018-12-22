@@ -16,6 +16,8 @@ module.exports.post = function (req, res) {
         } else {
             let compare = bcrypt.compareSync(req.body.password, admin[0].dataValues.password);
             if (compare === true) {
+                req.session.user = admin[0];
+                req.session.access = 'admin';
                 res.json(admin[0]);
             } else {
                 res.json('Contraseña incorrecta');

@@ -3,25 +3,18 @@
 let {Equipment} = require('../models');
 let {User} = require('../models');
 
-module.exports.get = function (req, res) {
-
+module.exports.post = function (req, res) {
     Equipment.create({
-        name: 'nombre',
-        moderatorID: req.params.id,
-        owner: req.params.id,
-    }).then(function (result) {
-        User.findAll({where: {email: 'q@q.q'}}).then( function(data) {
-            result.setUsers([data[0].id]).then(() => {
-                console.log(result.getUsers().then(tables =>{
-                    console.log(tables, 'hoi');
-                    res.json(tables );
-                }));
+            name: req.body.name,
+            moderatorID: req.body.id,
+            owner: req.body.id,
+            size: req.body.size,
+    }).then(function (equipment) {
+        User.findAll({where: {email: req.session.user.email}}).then( function(user) {
+        equipment.setUsers([user[0].id]).then(() => {
+            equipment.getUsers().then(function (relationship) {
+                res.json(relationship);
             });
         });
-    /*Equipment.findAll({where: {id: req.params.id}}).then( function(data) {
-        let user = data[0];
-
-        console.log(user, 'hoi');
-        res.json(user);
-    });*/
-    })};
+    });});
+};
