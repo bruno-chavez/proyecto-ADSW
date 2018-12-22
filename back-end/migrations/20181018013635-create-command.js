@@ -10,7 +10,7 @@ module.exports = {
                 type: Sequelize.INTEGER
             },
             value: {
-                type: Sequelize.INTEGER
+                type: Sequelize.FLOAT
             },
             unit: {
                 type: Sequelize.STRING
