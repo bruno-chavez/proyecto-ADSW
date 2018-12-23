@@ -8,7 +8,4 @@ module.exports.get = function (req, res) {
         let user = data[0];
         res.json(user);
     });
-
-    console.log(req.params.id, 'hoi');
-
 };

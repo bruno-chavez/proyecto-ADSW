@@ -15,7 +15,7 @@ module.exports.get = function (req, res) {
                 moderator: true
             }).then(() => {});
 
-            res.json('Transferencia de permisos exitosa');
+            res.json('Moderator switched correctly ');
         });
         });
 };
