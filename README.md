@@ -83,6 +83,14 @@ este a cargo de la creacion de administradores
 ```/user``` Vista donde los usuarios envian comandos a los equipos/dispositivos. 
 Equivale a la historia de usuario 'Ingresar Comando'.
 
-```/admin``` Es donde se realiza la aprobacion o rechazo de usuarios registrados, proceso que solo puede
+```/admin``` Vista de administrador donde se realiza la aprobacion o rechazo de usuarios registrados, proceso que solo puede
  ser llevado acabo por administradores.
 Equivale a la historia de usuario 'Aprobar Usuarios'.
+
+```/create``` Vista de administrador donde se realiza 
+la creacion de equipos por un administrador.
+ Corresponde a la historia de usuario 'Crear Equipos'
+
+```/equipment``` Vista de moderador donde este puede añadir 
+usuarios normales (no moderadores ni administradores) 
+a su equipo. Corresponde a la historia de usuario 'Manejar Equipos'
