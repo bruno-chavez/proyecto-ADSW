@@ -23,7 +23,7 @@ module.exports.get = function (req, res) {
 
 module.exports.post = function (req, res) {
 
-    Equipment.findAll({where: {moderatorID: req.session.user.dataValues.id}}).then(equipment => {
+    Equipment.findAll({where: {moderatorID: req.body.id}}).then(equipment => {
         User.findAll({where: {email : req.body.email}}).then(user =>{
             equipment.setUsers(user[0]).then(() => {
                 res.json( user[0].name + ' added to this equipment')
