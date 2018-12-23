@@ -13,6 +13,7 @@ export class RegisterService {
   }
 
   getUser(serial){
+    console.log('hoi22');
     return this.http.post('http://localhost:3000/user', serial, {withCredentials: true})
   }
 

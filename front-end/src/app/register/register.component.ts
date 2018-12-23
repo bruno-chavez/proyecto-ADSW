@@ -44,12 +44,6 @@ export class RegisterComponent implements OnInit {
     /*console.log(modelo, 'modelo');*/
     if(password != cpassword){
       alert('Passwords dont match');
-    } else if (serial != 0){
-      this.registerService.getUser(serial).subscribe(user => {
-        if (user !== null){
-          alert('Serial already in use')
-        }
-      })
     } else if(username == ""){
       alert('Username cant be empty ')
     }
@@ -62,10 +56,39 @@ export class RegisterComponent implements OnInit {
     /*Registro Valido */
     else if (email.split('@').length<2){
       alert('Invalid email')
-    }
-    else{
-      if(serial>0){
-        /*Registrar Propietario */
+    } else {
+      if (serial != 0){
+          let serialJSON = {serial : serial};
+          this.registerService.getUser(serialJSON).subscribe(data => {
+            console.log(data, 'data');
+            if (data !== null){
+              alert('Serial already in use');
+            } else {
+              let userJSON = new User(username,email,password,false,serial,true);
+              this.registerService.postRegister(userJSON).subscribe(data => {
+                  if (typeof data != "string"){
+                    console.log(data,'Usuario Enviado');
+                    this.router.navigate(['/']);
+                  } else {
+                    console.log(data,'error');
+                    alert(data)
+                  }
+              });
+            }
+          })
+        } else{
+        /*Registrar Usuario */
+        this.registerService.postRegister(userp).subscribe(
+          data=>{
+            if (typeof data != "string"){
+              console.log(data,'Usuario Enviado');
+              this.router.navigate(['/']);
+            } else {
+              console.log(data,'error');
+              alert(data)
+            }
+          });
+        /*
         console.log('hoi');
         let userr = new User(username,email,password,false,serial,true);
         this.registerService.postRegister(userr).subscribe(
@@ -78,22 +101,8 @@ export class RegisterComponent implements OnInit {
               alert(data)
             }
         });
+         */
       }
-      else{
-        /*Registrar Usuario */
-        this.registerService.postRegister(userp).subscribe(
-          data=>{
-            if (typeof data != "string"){
-              console.log(data,'Usuario Enviado');
-              this.router.navigate(['/']);
-              } else {
-              console.log(data,'error');
-              alert(data)
-            }
-        });
-      
-      }
-      
     }
   }
 }
