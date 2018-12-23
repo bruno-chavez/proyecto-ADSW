@@ -4,17 +4,19 @@ let {Equipment} = require('../models');
 let {User} = require('../models');
 
 module.exports.post = function (req, res) {
-    Equipment.create({
+
+    User.findAll({where: {email: req.body.email}}).then( function(user) {
+        Equipment.create({
             name: req.body.name,
-            moderatorID: req.body.id,
-            owner: req.body.id,
             size: req.body.size,
-    }).then(function (equipment) {
-        User.findAll({where: {email: req.session.user.email}}).then( function(user) {
-        equipment.setUsers([user[0].id]).then(() => {
-            equipment.getUsers().then(function (relationship) {
-                res.json(relationship);
+            moderatorID: user[0].id,
+            owner: user[0].id
+        }).then(equipment => {
+            equipment.setUsers([user[0].id]).then(() => {
+                equipment.getUsers().then(function (relationship) {
+                    res.json(relationship);
+                });
             });
         });
-    });});
+    });
 };
