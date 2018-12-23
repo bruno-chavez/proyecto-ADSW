@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {Router} from "@angular/router";
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {NavigationStart, Router} from "@angular/router";
 import { HeaderService } from "./header.service";
 import { User} from "../user/user";
 
@@ -8,25 +8,40 @@ import { User} from "../user/user";
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnChanges {
+  @Input() isLogged: boolean;
 
   constructor(
     private router:Router,
     private headerService: HeaderService
-  ) { }
+  ) { router.events.subscribe(event => {
+    if (event instanceof NavigationStart){
+      this.isLogged = !this.isLogged;
+      console.log('hoi')
+    }})}
 
-  ngOnInit() {
-    console.log("im on ngoniintit");
-    this.GetSession()
+  ngOnInit(){
+    this.headerService.getSession().subscribe( data => {
+    this.isLogged = data !== null;
+  })}
+
+  ngOnChanges(changes: SimpleChanges) {
+    this.headerService.getSession().subscribe( data => {
+      this.isLogged = data !== null;
+    })
   }
+
+  logout(){
+    this.headerService.logout().subscribe( () => {
+      this.router.navigate(['/'])
+    })
+  }
+  showRegister(){
+    this.router.navigate(['/register'])
+  }
+
   showLogin(){
-    this.router.navigate(['/']);
+    this.router.navigate(['/']  )
   }
 
-  GetSession(){
-    console.log("im getting sessioned");
-
-    let usuario = this.headerService.getSession();
-    console.log('usuario!', usuario);
-  }
 }

@@ -3,17 +3,30 @@
     <img src="https://coffee-electronics.com/wordpress/wp-content/uploads/2014/08/CE-Text-long1.png">
     <img src="https://coffee-electronics.com/wordpress/wp-content/uploads/2014/08/coffee-electronics-logo-150.jpg">
   </div>
-  <nav class="navbar navbar-expand-xl">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample06" aria-controls="navbarsExample06" aria-expanded="false" aria-label="Toggle navigation">
+  <nav class="navbar navbar-expand-sm">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="navElements" aria-controls="navbarsExample06" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse topnav-right" id="nav">
-      <ul class="navbar-nav">
-        <button class="button" *ngIf="true" (click)="showLogin();"> Login </button>
-        <div class="nav-item"> {{usuario}} </div>
+    <div class="collapse navbar-collapse topnav-right" id="navElements">
+      <ul class="navbar-nav mr-auto">
+
+        <ng-container *ngIf="isLogged">
+          <li class="nav-item active">
+            <button class="button" (click)="logout();"> Logout </button>
+          </li>
+        </ng-container>
+
+        <ng-container *ngIf="!isLogged">
+          <li class="nav-item active">
+            <button class="button" (click)="showRegister();"> Register </button>
+          </li>
+
+          <li class="nav-item active">
+            <button class="button" (click)="showLogin();"> Login </button>
+          </li>
+        </ng-container>
       </ul>
     </div>
   </nav>
 </header>
-

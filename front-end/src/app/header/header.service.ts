@@ -6,10 +6,13 @@ import { HttpClient } from '@angular/common/http';
 })
 export class HeaderService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getSession(){
     return this.http.get('http://localhost:3000/session',{withCredentials: true})
   }
 
+  logout(){
+    return this.http.get('http://localhost:3000/logout',{withCredentials: true})
+  }
 }
