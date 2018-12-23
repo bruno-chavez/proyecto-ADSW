@@ -56,13 +56,41 @@ Una vez realizados todos estos pasos en el orden dado, se puede usar la pagina d
 
 # Rutas
 
-Hasta el momento las siguientes rutan estan funcionando correctamente, donde cada una es parte de una historia de usuario que se pide para cada entrega.
+```/``` Login para usuarios y moderadores, si bien no es parte de una historia de usuario.
+ Equivale a la historia de usuario 'Controlar Acceso'
 
-```/``` Login para usuarios y moderadores, si bien no es parte de una historia de usuario, es necesario para que 
-estas sean implementadas correctamente.
+```/adminlogin``` Vista donde los administradores 
+se loguean para hacer uso de la plataforma, 
+cabe destacar que no hay vista para el registro de usuarios, 
+esto se hico como medida de seguridad 
+para que no todas las personas puedan registrarse de usuario.
 
-```/user``` Es donde los usuarios envian comandos a los equipos/dispositivos. 
+La unica manera de que se cree un nuevo administrador 
+es haciendo una request a la ruta del BACKEND ```/adminregister```, proporcionando un email y contraseña con las cuales se podra loguear. 
+
+Ademas se debe proporcionar una key que en este caso quedo 
+como 'holaquepasoquepasochao', 
+esto se utilizo para que no cualquiera pueda enviar 
+requests a esta ruta, 
+y solo los que conocen la clave podran 
+registrar un nuevo administrador. 
+Consideramos esto como una medida de seguridad 
+y seria el equivalente a que el sysadmin de una institucion 
+este a cargo de la creacion de administradores
+
+```/register``` Registro de usuarios, sin esta vista no se podrian crear nuevos usuarios.
+
+```/user``` Vista donde los usuarios envian comandos a los equipos/dispositivos. 
 Equivale a la historia de usuario 'Ingresar Comando'.
 
-```/admin``` Es donde se realiza la aprobacion o rechazo de usuarios registrados. 
+```/admin``` Vista de administrador donde se realiza la aprobacion o rechazo de usuarios registrados, proceso que solo puede
+ ser llevado acabo por administradores.
 Equivale a la historia de usuario 'Aprobar Usuarios'.
+
+```/create``` Vista de administrador donde se realiza 
+la creacion de equipos por un administrador.
+ Corresponde a la historia de usuario 'Crear Equipos'
+
+```/equipment``` Vista de moderador donde este puede añadir 
+usuarios normales (no moderadores ni administradores) 
+a su equipo. Corresponde a la historia de usuario 'Manejar Equipos'
