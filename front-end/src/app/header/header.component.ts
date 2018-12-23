@@ -16,8 +16,7 @@ export class HeaderComponent implements OnInit, OnChanges {
     private headerService: HeaderService
   ) { router.events.subscribe(event => {
     if (event instanceof NavigationStart){
-      this.isLogged = !this.isLogged;
-      console.log('hoi')
+      this.isLogged = !this.isLogged
     }})}
 
   ngOnInit(){
@@ -33,7 +32,8 @@ export class HeaderComponent implements OnInit, OnChanges {
 
   logout(){
     this.headerService.logout().subscribe( () => {
-      this.router.navigate(['/'])
+      this.router.navigate(['/']);
+      this.isLogged = false;
     })
   }
   showRegister(){

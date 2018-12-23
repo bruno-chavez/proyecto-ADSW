@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoginService } from './login.service';
 import { Router }  from '@angular/router';
 import { User } from "../user/user"
-
+import {Location} from "@angular/common";
 
 @Component({
   selector: 'app-login-form',
@@ -13,11 +13,18 @@ export class LoginFormComponent implements OnInit {
 
   constructor( 
     private loginService:LoginService,
-    private router:Router
-    ) { }
+    private router:Router,
+    private location:Location) { }
 
   ngOnInit() {
+    this.loginService.getSession().subscribe(session =>{
+      // @ts-ignore
+      if (session !== null) {
+        this.location.back();
+      }
+    })
   }
+
   loginUser(user){
     user.preventDefault();
     let email = user.target.elements[0].value;
@@ -26,20 +33,13 @@ export class LoginFormComponent implements OnInit {
 
     this.loginService.LoginUser(objeto).subscribe(
       response=>{
-       if (typeof response != "string"){ //Login Correcto
-         
-         console.log(response);
+       if (typeof response != "string"){
+         //Login Correcto
          let user = new User(response[0],response[2],'notview',response[4],response[5],response[6]);
-         console.log(user);
          this.router.navigate(['/user']);
-       }
-       else{ //Login Incorrecto
+       } else{ //Login Incorrecto
          alert(response);
        }
     });
-   
-    
-    
-    
   }
 }

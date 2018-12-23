@@ -15,5 +15,8 @@ export class CommandService {
     return this.http.post('http://localhost:3000/command', command,{withCredentials: true})
   }
 
+  getSession(){
+    return this.http.get('http://localhost:3000/session',{withCredentials: true})
+  }
 }
 

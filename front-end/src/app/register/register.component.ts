@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../user/user';
 import { RegisterService } from "./register.service";
 import { Router } from "@angular/router"
+import {Location} from "@angular/common";
 
 
 @Component({
@@ -13,11 +14,19 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private registerService:RegisterService,
-    private router:Router
+    private router:Router,
+    private location: Location
     ) { }
 
   ngOnInit() {
+    this.registerService.getSession().subscribe(session =>{
+      console.log(session);
+      if (session !== null) {
+        this.location.back();
+      }
+    })
   }
+
   registerUser(user){
     user.preventDefault();
     let username = user.target.elements[0].value;

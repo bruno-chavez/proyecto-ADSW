@@ -11,4 +11,8 @@ export class LoginService {
     console.log('http://localhost:3000/login/');
     return this.http.post('http://localhost:3000/login', modelo, {withCredentials: true});
   }
+
+  getSession(){
+    return this.http.get('http://localhost:3000/session',{withCredentials: true})
+  }
 }

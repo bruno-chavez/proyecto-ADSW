@@ -1,17 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 import { Comando } from './comando';
 import { CommandService } from "./command.service";
+import { Location } from "@angular/common";
 
 @Component({
   selector: 'app-comando',
   templateUrl: './comando.component.html',
   styleUrls: ['./comando.component.css']
 })
+
 export class ComandoComponent implements OnInit {
-  constructor(private commandService: CommandService) { }
+  constructor(private commandService: CommandService,
+              private location: Location) { }
 
   ngOnInit() {
+    this.commandService.getSession().subscribe(session =>{
+      // @ts-ignore
+      if ((session === null) ||(session.access === 'admin')) {
+        this.location.back();
+      }
+    })
   }
+
   registercomando(comando){
     let dispositivo = comando.target.elements[0].value;
     let funcion = comando.target.elements[1].value;
@@ -33,18 +43,13 @@ export class ComandoComponent implements OnInit {
                 console.log(data, "objeto enviado");
                 alert('Commando Logueado');
               });
-        }
-        else{
+        } else{
           alert('Valor Ingresado Invalido')
         }
-      } 
-      else{
+      } else{
         alert('Valor Fuera de Rango')
-      }
-    }
-    else{
+      }} else{
       alert("Valor Ingresado Invalido");
     }
-    
   }
 }
