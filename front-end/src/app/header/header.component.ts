@@ -1,7 +1,6 @@
 import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
-import {NavigationStart, Router} from "@angular/router";
+import {Router} from "@angular/router";
 import { HeaderService } from "./header.service";
-import { User} from "../user/user";
 
 @Component({
   selector: 'app-header',
@@ -14,10 +13,7 @@ export class HeaderComponent implements OnInit, OnChanges {
   constructor(
     private router:Router,
     private headerService: HeaderService
-  ) { router.events.subscribe(event => {
-    if (event instanceof NavigationStart){
-      this.isLogged = !this.isLogged
-    }})}
+  ) {}
 
   ngOnInit(){
     this.headerService.getSession().subscribe( data => {
@@ -44,4 +40,7 @@ export class HeaderComponent implements OnInit, OnChanges {
     this.router.navigate(['/']  )
   }
 
+  showAdminLogin(){
+    this.router.navigate(['/adminlogin'])
+  }
 }

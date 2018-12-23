@@ -17,13 +17,15 @@ import { RegisterService} from "./register/register.service";
 import { LoginService } from "./login-form/login.service";
 import { AdminComponent } from './admin/admin.component';
 import { AdminService} from "./admin/admin.service";
+import { AdminLoginComponent } from "./admin-login/admin-login.component";
+import { AdminLoginService } from "./admin-login/admin-login.service";
 
 const routes: Routes=[
   {path: '', component: LoginFormComponent},
   {path:'user', component:UserComponent},
   {path: 'register',component: RegisterComponent},
-  {path: 'admin', component: AdminComponent}
-
+  {path: 'admin', component: AdminComponent},
+  {path:'adminlogin', component: AdminLoginComponent}
 ];
 
 
@@ -37,8 +39,8 @@ const routes: Routes=[
     HistorialComponent,
     ComandoComponent,
     UserComponent,
-    AdminComponent
-    
+    AdminComponent,
+    AdminLoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,7 +52,8 @@ const routes: Routes=[
     CommandService,
     RegisterService,
     LoginService,
-    AdminService
+    AdminService,
+    AdminLoginService,
   ],
   bootstrap: [AppComponent]
 })

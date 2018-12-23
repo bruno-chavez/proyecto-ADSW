@@ -21,10 +21,10 @@ export class AdminComponent implements OnInit {
     this.getData();
     this.adminService.getSession().subscribe(session =>{
       console.log(session);
-      // @ts-ignore
-      if ((session === null) ||(session.access === 'admin')) {
-        this.location.back();
-      }
+        // @ts-ignore
+        if ((session === null) ||(session.access === 'user')) {
+          this.router.navigate(['/adminlogin']);
+        }
     })
   }
 
