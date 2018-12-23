@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router} from "@angular/router";
 import { Comando } from './comando';
 import { CommandService } from "./command.service";
-import { Location } from "@angular/common";
 
 @Component({
   selector: 'app-comando',
@@ -11,13 +11,13 @@ import { Location } from "@angular/common";
 
 export class ComandoComponent implements OnInit {
   constructor(private commandService: CommandService,
-              private location: Location) { }
+              private router: Router) { }
 
   ngOnInit() {
     this.commandService.getSession().subscribe(session =>{
       // @ts-ignore
       if ((session === null) ||(session.access === 'admin')) {
-        this.location.back();
+        this.router.navigate(['/']);
       }
     })
   }

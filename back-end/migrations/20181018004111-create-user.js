@@ -26,7 +26,6 @@ module.exports = {
         serial: {
           type: Sequelize.INTEGER,
             defaultValue: 0,
-            unique: true
         },
         approved: {
           type: Sequelize.BOOLEAN,
