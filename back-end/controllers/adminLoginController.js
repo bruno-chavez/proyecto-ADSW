@@ -7,9 +7,9 @@ let bcrypt = require('bcrypt');
 module.exports.post = function (req, res) {
 
     Admin.findAll({where: {email: req.body.email}}).then( function(admin){
-        console.log(admin[0].dataValues.password, 'hash');
+        /*console.log(admin[0].dataValues.password, 'hash');
         console.log(req.body.email, 'email');
-        console.log(req.body.password, 'pass');
+        console.log(req.body.password, 'pass');*/
 
         if (admin[0].dataValues.approved === false) {
             res.json('Usuario no aprobado por administrador');
