@@ -22,7 +22,7 @@ export class RegisterComponent implements OnInit {
     this.registerService.getSession().subscribe(session =>{
       console.log(session);
       if (session !== null) {
-        this.location.back();
+        this.router.navigate(['/user']);
       }
     })
   }
@@ -42,21 +42,26 @@ export class RegisterComponent implements OnInit {
       alert('Usuario')
     });*/
     /*console.log(modelo, 'modelo');*/
-    if(password!=cpassword){
-      alert('Password dont much');
+    if(password != cpassword){
+      alert('Passwords dont match');
+    } else if (serial != 0){
+      this.registerService.getUser(serial).subscribe(user => {
+        if (user !== null){
+          alert('Serial already in use')
+        }
+      })
+    } else if(username == ""){
+      alert('Username cant be empty ')
     }
-    else if(username==""){
-      alert('Username No puede estar vacio ')
+    else if(email == ""){
+      alert('Email cant be empty')
     }
-    else if(email==""){
-      alert('Email No puede estar vacio ')
-    }
-    else if(password==""){
-      alert('Password No puede estar vacio ')
+    else if(password == ""){
+      alert('Password cant be empty')
     }
     /*Registro Valido */
     else if (email.split('@').length<2){
-      alert('Formato de Email Invalido')
+      alert('Invalid email')
     }
     else{
       if(serial>0){

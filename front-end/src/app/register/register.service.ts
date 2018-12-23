@@ -12,6 +12,10 @@ export class RegisterService {
     return this.http.post('http://localhost:3000/register', user)
   }
 
+  getUser(serial){
+    return this.http.post('http://localhost:3000/user', serial, {withCredentials: true})
+  }
+
   getSession(){
     return this.http.get('http://localhost:3000/session',{withCredentials: true})
   }

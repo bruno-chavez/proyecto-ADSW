@@ -1,25 +1,35 @@
 :host{
-    flex-grow: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 div.input{
-    position: relative;
+  position: relative;
 }
 div.input label{
-    position: absolute;
-    top: 0;
-    transform: translateY(-50%);
-    left: 10px;
-    background: white;
-    padding: 5px 2px;
+  position: absolute;
+  top: 0;
+  transform: translateY(-50%);
+  left: 10px;
+  background: white;
+  padding: 5px 2px;
 }
 div.input input{
-    padding: 10px 20px;
-    font-size: 25px;
-    outline: 0;
+  padding: 10px 20px;
+  font-size: 25px;
+  outline: 0;
 }
 div.input{
-    margin-top: 20px;
+  margin-top: 20px;
 }
+
+.section-title {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-title small {
+  color: #998a9b;
+}
+

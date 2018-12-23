@@ -16,14 +16,7 @@ export class LoginFormComponent implements OnInit {
     private router:Router,
     private location:Location) { }
 
-  ngOnInit() {
-    this.loginService.getSession().subscribe(session =>{
-      // @ts-ignore
-      if (session !== null) {
-        this.location.back();
-      }
-    })
-  }
+  ngOnInit() {}
 
   loginUser(user){
     user.preventDefault();
