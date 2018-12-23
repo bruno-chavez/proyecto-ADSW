@@ -25,7 +25,7 @@ module.exports = {
         },
         serial: {
           type: Sequelize.INTEGER,
-            defaultValue: 0
+            defaultValue: 0,
         },
         approved: {
           type: Sequelize.BOOLEAN,

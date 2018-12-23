@@ -21,8 +21,8 @@ module.exports.post = function (req, res) {
 };
 
 module.exports.delete = function (req, res) {
-    User.destroy({where: {id: req.params.id}}).then(data => {
-        res.json('Usuario Eliminado');
+    User.destroy({where: {id: req.params.id}}).then(() => {
+        res.json('User Deleted');
     });
 };
 

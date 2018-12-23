@@ -5,7 +5,7 @@ let bcrypt = require('bcrypt');
 
 module.exports.post = function (req, res) {
     let hashedPassword = bcrypt.hashSync(req.body.password, 8);
-
+    console.log(req.body);
     User.create({
         name: req.body.userName,
         email: req.body.email,
@@ -16,7 +16,7 @@ module.exports.post = function (req, res) {
     }).then(function (result) {
         res.json(result);
     }).catch(function (err) {
-        console.log(err, 'error');
-        res.json('el email ya se encuentra ocupado');
+        console.log(err);
+        res.json('Email already in use');
     });
 };

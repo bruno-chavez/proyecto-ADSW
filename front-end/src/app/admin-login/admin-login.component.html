@@ -1,11 +1,11 @@
 <div class="section">
   <div class="container">
     <div class="section-title">
-      <h4> Login as a User</h4>
+      <h4> Login as an Admin</h4>
     </div>
 
     <div style="overflow-x:auto;">
-      <form  (submit)="loginUser($event)">
+      <form  (submit)="loginAdmin($event)">
         <div class="input">
           <label>Email</label>
           <input type="email">
@@ -17,11 +17,10 @@
         </div>
 
         <div class="input">
-          <input type="submit" value="Login" onclick="window.location='/user';">
+          <input type="submit" value="Login" onclick="window.location='/admin';">
         </div>
       </form>
     </div>
   </div>
+
 </div>
-
-

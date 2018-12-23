@@ -4,7 +4,7 @@ let {User} = require('../models');
 
 module.exports.get = function (req, res) {
 
-    User.findAll({where: {id: req.params.moderator}}).then( function(moderator) {
+    User.findAll({where: {id: req.session.user.id}}).then( function(moderator) {
         User.findAll({where: {id: req.params.user}}).then( function(user) {
             moderator[0].update({
                 moderator: false
@@ -15,7 +15,7 @@ module.exports.get = function (req, res) {
                 moderator: true
             }).then(() => {});
 
-            res.json('Transferencia de permisos exitosa');
+            res.json('Moderator switched correctly ');
         });
         });
 };

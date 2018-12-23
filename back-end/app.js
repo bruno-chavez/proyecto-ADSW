@@ -7,7 +7,7 @@ let logger = require('morgan');
 let session = require('express-session');
 
 let indexRouter = require('./routes/index');
-//let userRouter = require('./routes/users');
+let userRouter = require('./routes/users');
 let commandRouter = require('./routes/command');
 //let historyRouter = require('./routes/history');
 let registerRouter = require('./routes/register');
@@ -15,10 +15,10 @@ let loginRouter = require('./routes/login');
 let moderatorRouter = require('./routes/moderator');
 let equipmentRouter = require('./routes/equipment');
 let adminRouter = require('./routes/admin');
-let isAdminRouter = require('./routes/isAdmin');
 let adminLoginRouter = require('./routes/adminLogin');
 let logoutRouter = require('./routes/logout');
-
+let sessionRouter = require('./routes/session');
+let adminRegisterRouter = require('./routes/adminRegister');
 
 let cors = require('cors');
 
@@ -39,7 +39,7 @@ app.use(session({
 
 
 app.use('/', indexRouter);
-//app.use('/user', userRouter);
+app.use('/user', userRouter);
 app.use('/command', commandRouter);
 //app.use('/history', historyRouter);
 app.use('/login', loginRouter);
@@ -49,6 +49,7 @@ app.use('/equipment', equipmentRouter);
 app.use('/admin', adminRouter);
 app.use('/adminlogin', adminLoginRouter);
 app.use('/logout', logoutRouter);
-app.use('/isadmin', isAdminRouter);
+app.use('/session', sessionRouter);
+app.use('/adminregister', adminRegisterRouter);
 
 module.exports = app;

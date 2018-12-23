@@ -1,16 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http'
-
+import { RouterModule , Routes } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { FooterComponent } from './footer/footer.component';
-
-import { RouterModule , Routes } from '@angular/router';
 import { RegisterComponent } from './register/register.component';
-import { FormsModule } from '@angular/forms';
 import { HistorialComponent } from './historial/historial.component';
 import { ComandoComponent } from './command/comando.component';
 import { UserComponent } from './user/user.component';
@@ -19,13 +17,16 @@ import { RegisterService} from "./register/register.service";
 import { LoginService } from "./login-form/login.service";
 import { AdminComponent } from './admin/admin.component';
 import { AdminService} from "./admin/admin.service";
+import { AdminLoginComponent } from "./admin-login/admin-login.component";
+import { AdminLoginService } from "./admin-login/admin-login.service";
+import { EquipmentComponent } from './equipment/equipment.component';
 
 const routes: Routes=[
   {path: '', component: LoginFormComponent},
   {path:'user', component:UserComponent},
   {path: 'register',component: RegisterComponent},
-  {path: 'admin', component: AdminComponent}
-
+  {path: 'admin', component: AdminComponent},
+  {path:'adminlogin', component: AdminLoginComponent}
 ];
 
 
@@ -39,8 +40,9 @@ const routes: Routes=[
     HistorialComponent,
     ComandoComponent,
     UserComponent,
-    AdminComponent
-    
+    AdminComponent,
+    AdminLoginComponent,
+    EquipmentComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,7 +54,8 @@ const routes: Routes=[
     CommandService,
     RegisterService,
     LoginService,
-    AdminService
+    AdminService,
+    AdminLoginService,
   ],
   bootstrap: [AppComponent]
 })

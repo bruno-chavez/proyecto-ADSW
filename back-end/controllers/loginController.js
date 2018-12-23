@@ -12,20 +12,19 @@ module.exports.post = function (req, res) {
         console.log(req.body.password, 'pass');*/
 
         if (user[0].dataValues.approved === false) {
-            res.json('Usuario no aprobado por administrador');
+            res.json('User not approved by and administrator');
         } else {
             let compare = bcrypt.compareSync(req.body.password, user[0].dataValues.password);
             if (compare === true) {
                 req.session.user = user[0];
-                console.log(req.sessionID);
                 req.session.access = 'user';
                 res.json(user[0]);
             } else {
-                res.json('Contraseña incorrecta');
+                res.json('Wrong Password');
             }
         }
     }).catch(function (err) {
         console.log(err, 'error');
-        res.json('Correo no existente');
+        res.json('Email doesnt exists');
     });
 };

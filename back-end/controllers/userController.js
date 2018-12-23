@@ -1,8 +1,8 @@
 "use strict";
 
-let {User} = require('../models');
+let { User } = require('../models');
 
 module.exports.post = function (req, res) {
-    console.log(req.body, "req.body");
-
-};
+    User.findAll({where: {serial: req.body.serial}}).then( user => {
+        res.json(user[0]);
+    })};
