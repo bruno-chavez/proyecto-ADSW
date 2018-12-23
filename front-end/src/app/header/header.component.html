@@ -17,6 +17,18 @@
           </li>
         </ng-container>
 
+        <ng-container *ngIf="isUser">
+          <li class="nav-item active">
+            <button class="button" (click)="showCommand();"> Command </button>
+          </li>
+        </ng-container>
+
+        <ng-container *ngIf="isMod">
+          <li class="nav-item active">
+            <button class="button" (click)="showEquipment();"> Equipment </button>
+          </li>
+        </ng-container>
+
         <ng-container *ngIf="!isLogged">
           <li class="nav-item active">
             <button class="button" (click)="showRegister();"> Sign up </button>

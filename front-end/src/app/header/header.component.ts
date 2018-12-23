@@ -9,6 +9,8 @@ import { HeaderService } from "./header.service";
 })
 export class HeaderComponent implements OnInit, OnChanges {
   @Input() isLogged: boolean;
+  @Input() isMod: boolean;
+  @Input() isUser: boolean;
 
   constructor(
     private router:Router,
@@ -18,11 +20,37 @@ export class HeaderComponent implements OnInit, OnChanges {
   ngOnInit(){
     this.headerService.getSession().subscribe( data => {
     this.isLogged = data !== null;
-  })}
+    // @ts-ignore
+    if ((data === null) || (data.access === 'admin') || (data.access === 'user')) {
+      this.isMod = false;
+    } else {
+      this.isMod = true;
+    }
+    // @ts-ignore
+    if ((data === null) || (data.access === 'admin')) {
+        this.isUser = false;
+      } else {
+        this.isUser = true;
+      }
+    })}
 
   ngOnChanges(changes: SimpleChanges) {
     this.headerService.getSession().subscribe( data => {
       this.isLogged = data !== null;
+
+      // @ts-ignore
+      if ((data === null) || (data.access === 'admin') || (data.access === 'user')) {
+        this.isMod = false;
+      } else {
+        this.isMod = true;
+      }
+
+      // @ts-ignore
+      if ((data === null) || (data.access === 'admin')) {
+        this.isUser = false;
+      } else {
+        this.isUser = true;
+      }
     })
   }
 
@@ -30,6 +58,8 @@ export class HeaderComponent implements OnInit, OnChanges {
     this.headerService.logout().subscribe( () => {
       this.router.navigate(['/']);
       this.isLogged = false;
+      this.isMod = false;
+      this.isUser = false;
     })
   }
   showRegister(){
@@ -42,5 +72,13 @@ export class HeaderComponent implements OnInit, OnChanges {
 
   showAdminLogin(){
     this.router.navigate(['/adminlogin'])
+  }
+
+  showEquipment(){
+    this.router.navigate(['/equipment'])
+  }
+
+  showCommand(){
+    this.router.navigate(['/user'])
   }
 }

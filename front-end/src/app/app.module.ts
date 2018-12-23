@@ -19,13 +19,15 @@ import { AdminComponent } from './admin/admin.component';
 import { AdminService} from "./admin/admin.service";
 import { AdminLoginComponent } from "./admin-login/admin-login.component";
 import { AdminLoginService } from "./admin-login/admin-login.service";
+import {EquipmentComponent} from "./equipment/equipment.component";
 
 const routes: Routes=[
   {path: '', component: LoginFormComponent},
   {path:'user', component:UserComponent},
   {path: 'register',component: RegisterComponent},
   {path: 'admin', component: AdminComponent},
-  {path:'adminlogin', component: AdminLoginComponent}
+  {path:'adminlogin', component: AdminLoginComponent},
+  {path:'equipment', component:EquipmentComponent}
 ];
 
 
@@ -41,6 +43,7 @@ const routes: Routes=[
     UserComponent,
     AdminComponent,
     AdminLoginComponent,
+    EquipmentComponent,
   ],
   imports: [
     BrowserModule,

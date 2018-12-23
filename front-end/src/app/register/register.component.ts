@@ -64,7 +64,7 @@ export class RegisterComponent implements OnInit {
             if (data !== null){
               alert('Serial already in use');
             } else {
-              let userJSON = new User(username,email,password,false,serial,true);
+              let userJSON = new User(username,email,password,true,serial,true);
               this.registerService.postRegister(userJSON).subscribe(data => {
                   if (typeof data != "string"){
                     console.log(data,'Usuario Enviado');
