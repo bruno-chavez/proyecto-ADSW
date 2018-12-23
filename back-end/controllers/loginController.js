@@ -13,13 +13,11 @@ module.exports.post = function (req, res) {
             let compare = bcrypt.compareSync(req.body.password, user[0].dataValues.password);
             if (compare === true) {
                 req.session.user = user[0];
-                console.log(user[0].moderator, 'permit');
                 if (user[0].moderator) {
                     req.session.access = 'mod';
                 } else {
                     req.session.access = 'user';
                 }
-                console.log(req.session.access);
                 res.json(user[0]);
             } else {
                 res.json('Wrong Password');

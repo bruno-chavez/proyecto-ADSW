@@ -22,7 +22,7 @@ export class RegisterComponent implements OnInit {
     this.registerService.getSession().subscribe(session =>{
       console.log(session);
       if (session !== null) {
-        this.router.navigate(['/user']);
+        this.router.navigate(['/command']);
       }
     })
   }

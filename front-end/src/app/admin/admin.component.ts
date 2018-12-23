@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminService} from "./admin.service";
 import { Router} from "@angular/router";
-import {User} from "../user/user";
-import {Location} from "@angular/common";
+
 
 @Component({
   selector: 'app-admin',
@@ -14,8 +13,7 @@ export class AdminComponent implements OnInit {
   userList: Object;
 
   constructor(private adminService: AdminService,
-              private router: Router,
-              private location: Location) { }
+              private router: Router,) { }
 
   ngOnInit() {
     this.getData();

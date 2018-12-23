@@ -9,7 +9,7 @@ import { HeaderService } from "./header.service";
 })
 export class HeaderComponent implements OnInit, OnChanges {
   @Input() isLogged: boolean;
-  @Input() isMod: boolean;
+  @Input() hasEquipment: boolean;
   @Input() isUser: boolean;
 
   constructor(
@@ -21,29 +21,32 @@ export class HeaderComponent implements OnInit, OnChanges {
     this.headerService.getSession().subscribe( data => {
     this.isLogged = data !== null;
     // @ts-ignore
-    if ((data === null) || (data.access === 'admin') || (data.access === 'user')) {
-      this.isMod = false;
-    } else {
-      this.isMod = true;
-    }
     // @ts-ignore
     if ((data === null) || (data.access === 'admin')) {
         this.isUser = false;
       } else {
         this.isUser = true;
-      }
-    })}
+      }});
+
+    this.hasEquipment = true;
+    this.headerService.getEquipment().subscribe(users => {
+      this.headerService.getSession().subscribe(session =>{
+        if (session !== null) {
+          // @ts-ignore
+          for (let i of users) {
+            // @ts-ignore
+            if (i.email === session.user.email) {
+              this.hasEquipment = false;
+              }
+            }
+          }
+        })
+    });
+  }
 
   ngOnChanges(changes: SimpleChanges) {
     this.headerService.getSession().subscribe( data => {
       this.isLogged = data !== null;
-
-      // @ts-ignore
-      if ((data === null) || (data.access === 'admin') || (data.access === 'user')) {
-        this.isMod = false;
-      } else {
-        this.isMod = true;
-      }
 
       // @ts-ignore
       if ((data === null) || (data.access === 'admin')) {
@@ -58,7 +61,7 @@ export class HeaderComponent implements OnInit, OnChanges {
     this.headerService.logout().subscribe( () => {
       this.router.navigate(['/']);
       this.isLogged = false;
-      this.isMod = false;
+      this.hasEquipment = false;
       this.isUser = false;
     })
   }
@@ -75,7 +78,7 @@ export class HeaderComponent implements OnInit, OnChanges {
   }
 
   showEquipment(){
-    this.router.navigate(['/create-equipment'])
+    this.router.navigate(['/equipment'])
   }
 
   showCommand(){

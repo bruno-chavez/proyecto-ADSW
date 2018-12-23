@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from './login.service';
-import { Router }  from '@angular/router';
-import { User } from "../user/user"
-import {Location} from "@angular/common";
+
 
 @Component({
   selector: 'app-login-form',
@@ -12,9 +10,7 @@ import {Location} from "@angular/common";
 export class LoginFormComponent implements OnInit {
 
   constructor( 
-    private loginService:LoginService,
-    private router:Router,
-    private location:Location) { }
+    private loginService:LoginService) { }
 
   ngOnInit() {}
 
@@ -26,10 +22,10 @@ export class LoginFormComponent implements OnInit {
 
     this.loginService.LoginUser(objeto).subscribe(
       response=>{
-       if (typeof response != "string"){
+       if (typeof response !== "string"){
          //Login Correcto
-         let user = new User(response[0],response[2],'notview',response[4],response[5],response[6]);
-         this.router.navigate(['/user']);
+         // @ts-ignore
+         window.location = 'http://localhost:4200/command';
        } else{ //Login Incorrecto
          alert(response);
        }

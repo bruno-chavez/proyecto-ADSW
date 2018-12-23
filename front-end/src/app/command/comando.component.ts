@@ -15,7 +15,6 @@ export class ComandoComponent implements OnInit {
 
   ngOnInit() {
     this.commandService.getSession().subscribe(session =>{
-      console.log(session);
       // @ts-ignore
       if ((session === null) || (session.access === 'admin')) {
         this.router.navigate(['/']);

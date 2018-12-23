@@ -15,4 +15,8 @@ export class HeaderService {
   logout(){
     return this.http.get('http://localhost:3000/logout',{withCredentials: true})
   }
+
+  getEquipment(){
+    return this.http.get('http://localhost:3000/equipment',{withCredentials: true})
+  }
 }

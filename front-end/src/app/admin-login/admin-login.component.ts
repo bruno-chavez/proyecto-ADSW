@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router }  from '@angular/router';
-import {Location} from "@angular/common";
 import {AdminLoginService} from "./admin-login.service";
 
 @Component({
@@ -13,13 +12,12 @@ export class AdminLoginComponent implements OnInit {
 
   constructor(
     private adminloginService:AdminLoginService,
-    private router:Router,
-    private location:Location,) {}
+    private router:Router) {}
 
   ngOnInit() {
     this.adminloginService.getSession().subscribe(session =>{
       if (session !== null) {
-        this.router.navigate(['/user']);
+        this.router.navigate(['/command']);
       }
     })
   }
