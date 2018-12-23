@@ -47,7 +47,7 @@ app.use('/login', loginRouter);
 app.use('/register', registerRouter);
 app.use('/moderator', moderatorRouter);
 app.use('/create', createEquipmentRouter);
-app.use('/equipment', equipmentRouter);
+app.use('/create-equipment', equipmentRouter);
 app.use('/admin', adminRouter);
 app.use('/adminlogin', adminLoginRouter);
 app.use('/logout', logoutRouter);

@@ -1,19 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { EquipmentService} from "./equipment.service";
+import { CreateEquipmentService} from "./create-equipment.service";
 import {Router} from "@angular/router";
-import {User} from "../user/user";
 import {Equip} from "./equip";
 
 @Component({
   selector: 'app-equipment',
-  templateUrl: './equipment.component.html',
-  styleUrls: ['./equipment.component.css']
+  templateUrl: './create-equipment.component.html',
+  styleUrls: ['./create-equipment.component.css']
 })
-export class EquipmentComponent implements OnInit {
+export class CreateEquipmentComponent implements OnInit {
 
   userList: Object;
 
-  constructor(private equipmentService: EquipmentService,
+  constructor(private equipmentService: CreateEquipmentService,
               private router: Router) { }
 
   ngOnInit() {
@@ -21,7 +20,7 @@ export class EquipmentComponent implements OnInit {
     this.equipmentService.getSession().subscribe(session =>{
       console.log(session);
       // @ts-ignore
-      if ((session === null) ||(session.access === 'user')) {
+      if ((session === null) ||(session.access !== 'admin')) {
         this.router.navigate(['/adminlogin']);
       }
     })
@@ -57,7 +56,7 @@ export class EquipmentComponent implements OnInit {
     }
     else{
         /*Registrar Usuario */
-        this.equipmentService.postEquip(equip).subscribe(
+        this.equipmentService.postEquipment(equip).subscribe(
           data=>{
             if (typeof data != "string"){
               console.log(data,'Usuario Enviado');

@@ -22,7 +22,7 @@ export class AdminComponent implements OnInit {
     this.adminService.getSession().subscribe(session =>{
       console.log(session);
         // @ts-ignore
-        if ((session === null) ||(session.access === 'user')) {
+        if ((session === null) ||(session.access !== 'admin')) {
           this.router.navigate(['/adminlogin']);
         }
     })

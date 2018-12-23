@@ -75,10 +75,10 @@ export class HeaderComponent implements OnInit, OnChanges {
   }
 
   showEquipment(){
-    this.router.navigate(['/equipment'])
+    this.router.navigate(['/create-equipment'])
   }
 
   showCommand(){
-    this.router.navigate(['/user'])
+    this.router.navigate(['/command'])
   }
 }

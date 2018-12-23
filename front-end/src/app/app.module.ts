@@ -19,15 +19,16 @@ import { AdminComponent } from './admin/admin.component';
 import { AdminService} from "./admin/admin.service";
 import { AdminLoginComponent } from "./admin-login/admin-login.component";
 import { AdminLoginService } from "./admin-login/admin-login.service";
-import { EquipmentComponent } from "./equipment/equipment.component";
+import { CreateEquipmentComponent } from "./create-equipment/create-equipment.component";
+import {CreateEquipmentService} from "./create-equipment/create-equipment.service";
 
 const routes: Routes=[
   {path: '', component: LoginFormComponent},
-  {path:'user', component:UserComponent},
+  {path:'command', component:UserComponent},
   {path: 'register',component: RegisterComponent},
   {path: 'admin', component: AdminComponent},
   {path:'adminlogin', component: AdminLoginComponent},
-  {path:'equipment', component:EquipmentComponent}
+  {path:'create', component:CreateEquipmentComponent}
 ];
 
 
@@ -43,7 +44,7 @@ const routes: Routes=[
     UserComponent,
     AdminComponent,
     AdminLoginComponent,
-    EquipmentComponent,
+    CreateEquipmentComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,6 +58,7 @@ const routes: Routes=[
     LoginService,
     AdminService,
     AdminLoginService,
+    CreateEquipmentService,
   ],
   bootstrap: [AppComponent]
 })
