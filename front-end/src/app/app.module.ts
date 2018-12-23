@@ -19,7 +19,7 @@ import { AdminComponent } from './admin/admin.component';
 import { AdminService} from "./admin/admin.service";
 import { AdminLoginComponent } from "./admin-login/admin-login.component";
 import { AdminLoginService } from "./admin-login/admin-login.service";
-import {EquipmentComponent} from "./equipment/equipment.component";
+import { EquipmentComponent } from "./equipment/equipment.component";
 
 const routes: Routes=[
   {path: '', component: LoginFormComponent},
