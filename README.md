@@ -80,7 +80,7 @@ este a cargo de la creacion de administradores
 
 ```/register``` Registro de usuarios, sin esta vista no se podrian crear nuevos usuarios.
 
-```/user``` Vista donde los usuarios envian comandos a los equipos/dispositivos. 
+```/command``` Vista donde los usuarios envian comandos a los equipos/dispositivos. 
 Equivale a la historia de usuario 'Ingresar Comando'.
 
 ```/admin``` Vista de administrador donde se realiza la aprobacion o rechazo de usuarios registrados, proceso que solo puede
@@ -91,6 +91,8 @@ Equivale a la historia de usuario 'Aprobar Usuarios'.
 la creacion de equipos por un administrador.
  Corresponde a la historia de usuario 'Crear Equipos'
 
-```/equipment``` Vista de moderador donde este puede añadir 
+```/equipment``` Vista de moderador y de usuarios que pertenecen a equipos, 
+donde los moderadores puede añadir 
 usuarios normales (no moderadores ni administradores) 
-a su equipo. Corresponde a la historia de usuario 'Manejar Equipos'
+a su equipo ademas de poder traspasar el poder de moderador. Los usuarios pueden ver informacion del equipo y el resto de integrantes que pertenecen a el.
+ Corresponde a las historias de usuario 'Manejar Equipos' y 'Relegar Moderacion'
