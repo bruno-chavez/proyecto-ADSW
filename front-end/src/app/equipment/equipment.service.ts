@@ -27,4 +27,7 @@ export class EquipmentService {
   getEquipmentInfo(){
     return this.http.get('http://localhost:3000/equipmentinfo',{withCredentials: true})
   }
+  postNewMod(newMod){
+    return this.http.post('http://localhost:3000/moderator', newMod, {withCredentials: true})
+  }
 }

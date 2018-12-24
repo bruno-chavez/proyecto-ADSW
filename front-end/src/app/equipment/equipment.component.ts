@@ -49,4 +49,11 @@ export class EquipmentComponent implements OnInit {
       alert(response);
     })
   }
+  grantMod(newMod){
+    let mod ={email: newMod.target.elements[0].value};
+    console.log(mod);
+    this.equipmentService.postNewMod(mod).subscribe(response => {
+      alert(response);
+    });
+  }
 }

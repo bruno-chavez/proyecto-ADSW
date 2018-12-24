@@ -23,11 +23,18 @@
           <th>Name</th>
           <th>Email</th>
           <th>Is Moderator</th>
+          <th>Grant Moderator Status</th>
         </tr>
         <tr *ngFor ="let user of equipmentList">
           <td>{{user.name}}</td>
           <td>{{user.email}}</td>
           <td>{{user.moderator}}</td>
+          <td>
+            <form (submit)="grantMod($event)" name="newMod" style=" text-align: center;" >
+            <input type="hidden" name="mod" value="{{user.email}}">
+            <input type="submit" value="New Moderator">
+          </form>
+          </td>
         </tr>
       </table>
     </div>
