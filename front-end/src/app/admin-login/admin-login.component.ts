@@ -31,7 +31,8 @@ export class AdminLoginComponent implements OnInit {
     this.adminloginService.login(AdminObject).subscribe(response => {
       if (typeof response != "string"){
         //Login Correcto
-        this.router.navigate(['/admin']);
+        // @ts-ignore
+        window.location = 'http://localhost:4200/admin';
       } else{ //Login Incorrecto
         alert(response);
       }
