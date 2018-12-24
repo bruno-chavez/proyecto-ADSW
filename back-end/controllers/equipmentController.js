@@ -24,26 +24,13 @@ module.exports.get = function (req, res) {
 module.exports.post = function (req, res) {
     Equipment.findAll({where: {moderatorID: req.session.user.id}}).then(equipment => {
         User.findAll({where: {email : req.body.email}}).then(user =>{
+            console.log(equipment[0]);
             equipment[0].getUsers().then(users => {
-                users.push(user[0]);
-                let ids = [];
-                for (let id of users) {
-                    ids.push(id)
-                }
-                equipment[0].setUsers(ids).then(() => {
+                equipment[0].addUser(user[0].id).then(() => {
                     res.json( user[0].name + ' added to this equipment')
                 })
+
             })
         })
     })
 };
-
-/*
-
-.then(relation => {
-                    if (relation === null) {
-                        availableUsers.push(i);
-                        console.log(availableUsers.length, 'promise');
-                    }
-                })
- */

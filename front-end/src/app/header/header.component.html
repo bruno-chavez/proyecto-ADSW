@@ -29,6 +29,15 @@
           </li>
         </ng-container>
 
+        <ng-container *ngIf="isAdmin">
+          <li class="nav-item active">
+            <button class="button" (click)="showCreate();"> Create Equipment </button>
+          </li>
+
+          <li class="nav-item active">
+            <button class="button" (click)="showAdmin();"> Approve Users </button>
+          </li>
+        </ng-container>
         <ng-container *ngIf="!isLogged">
           <li class="nav-item active">
             <button class="button" (click)="showRegister();"> Sign up </button>

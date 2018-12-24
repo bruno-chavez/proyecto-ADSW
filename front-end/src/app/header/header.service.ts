@@ -19,4 +19,5 @@ export class HeaderService {
   getEquipment(){
     return this.http.get('http://localhost:3000/equipment',{withCredentials: true})
   }
+
 }

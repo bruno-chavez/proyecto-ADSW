@@ -20,6 +20,7 @@ let adminLoginRouter = require('./routes/adminLogin');
 let logoutRouter = require('./routes/logout');
 let sessionRouter = require('./routes/session');
 let adminRegisterRouter = require('./routes/adminRegister');
+let equipmentInfoRouter = require('./routes/equipmentInfo');
 
 let cors = require('cors');
 
@@ -53,5 +54,6 @@ app.use('/adminlogin', adminLoginRouter);
 app.use('/logout', logoutRouter);
 app.use('/session', sessionRouter);
 app.use('/adminregister', adminRegisterRouter);
+app.use('/equipmentinfo', equipmentInfoRouter);
 
 module.exports = app;

@@ -11,6 +11,7 @@ export class HeaderComponent implements OnInit, OnChanges {
   @Input() isLogged: boolean;
   @Input() hasEquipment: boolean;
   @Input() isUser: boolean;
+  @Input() isAdmin: boolean;
 
   constructor(
     private router:Router,
@@ -18,20 +19,30 @@ export class HeaderComponent implements OnInit, OnChanges {
   ) {}
 
   ngOnInit(){
+    this.isAdmin = false;
     this.headerService.getSession().subscribe( data => {
-    this.isLogged = data !== null;
-    // @ts-ignore
-    // @ts-ignore
-    if ((data === null) || (data.access === 'admin')) {
+      this.isLogged = data !== null;
+
+      if ((data === null)) {
         this.isUser = false;
+        // @ts-ignore
+      } else if (data.access === 'admin'){
+        this.isUser = false;
+        this.isAdmin = true;
       } else {
         this.isUser = true;
-      }});
+      }
+
+    });
 
     this.hasEquipment = true;
     this.headerService.getEquipment().subscribe(users => {
       this.headerService.getSession().subscribe(session =>{
         if (session !== null) {
+          // @ts-ignore
+          if (session.access === 'admin') {
+            this.hasEquipment = false;
+          }
           // @ts-ignore
           for (let i of users) {
             // @ts-ignore
@@ -63,6 +74,7 @@ export class HeaderComponent implements OnInit, OnChanges {
       this.isLogged = false;
       this.hasEquipment = false;
       this.isUser = false;
+      this.isAdmin = false;
     })
   }
   showRegister(){
@@ -83,5 +95,13 @@ export class HeaderComponent implements OnInit, OnChanges {
 
   showCommand(){
     this.router.navigate(['/command'])
+  }
+
+  showAdmin(){
+    this.router.navigate(['/admin'])
+
+  }
+  showCreate(){
+    this.router.navigate(['/create'])
   }
 }

@@ -60,7 +60,7 @@ export class CreateEquipmentComponent implements OnInit {
           data=>{
             if (typeof data != "string"){
               console.log(data,'Usuario Enviado');
-              this.router.navigate(['/']);
+              this.router.navigate(['/admin']);
             } else {
               console.log(data,'error');
               alert(data)

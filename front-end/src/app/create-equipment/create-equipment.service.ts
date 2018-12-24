@@ -9,7 +9,7 @@ export class CreateEquipmentService {
   constructor(private http: HttpClient) { }
 
   getUsers(){
-    return this.http.get('http://localhost:3000/create-equipment',{withCredentials: true})
+    return this.http.get('http://localhost:3000/equipment',{withCredentials: true})
   }
 
   getSession(){
