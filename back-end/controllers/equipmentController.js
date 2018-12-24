@@ -22,12 +22,17 @@ module.exports.get = function (req, res) {
 };
 
 module.exports.post = function (req, res) {
-    console.log(req.body);
-
     Equipment.findAll({where: {moderatorID: req.session.user.id}}).then(equipment => {
         User.findAll({where: {email : req.body.email}}).then(user =>{
-            equipment.setUsers([user[0].id]).then(() => {
-                res.json( user[0].name + ' added to this create-equipment')
+            equipment[0].getUsers().then(users => {
+                users.push(user[0]);
+                let ids = [];
+                for (let id of users) {
+                    ids.push(id)
+                }
+                equipment[0].setUsers(ids).then(() => {
+                    res.json( user[0].name + ' added to this equipment')
+                })
             })
         })
     })

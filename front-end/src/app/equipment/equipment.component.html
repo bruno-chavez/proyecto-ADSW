@@ -1,8 +1,10 @@
 <form (submit)="addUser($event)">
    <h4>Select a user to add to your equipment:</h4>
-    <select name="division">
-      <option *ngFor="let user of users" value="user.email"> {{ user.email }} </option>
+  <label>
+    <select name="user">
+      <option *ngFor="let user of users" value={{user.email}}> {{ user.email }} </option>
     </select>
-
-    <input type="submit" value="Add to equipment">
-</form>
+  </label>
+  <div class="input">
+    <input type="submit" value="Add">
+  </div></form>

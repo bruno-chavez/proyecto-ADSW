@@ -17,7 +17,6 @@ export class EquipmentService {
   }
 
   postUser(user){
-    console.log(user);
     return this.http.post('http://localhost:3000/equipment', user,{withCredentials: true})
   }
 }

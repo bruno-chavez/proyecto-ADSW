@@ -18,10 +18,9 @@ export class EquipmentComponent implements OnInit {
   }
 
   addUser(user){
-    console.log(user.target.element[0].value);
-    let userJSON = {email : user.target.element[0].value};
+    console.log(user.target.elements[0].value);
+    let userJSON = {email : user.target.elements[0].value};
     console.log(userJSON);
-    alert('hpoi?');
     this.equipmentService.postUser(userJSON).subscribe(response =>{
       console.log(response);
       alert(response);
