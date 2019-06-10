@@ -8,6 +8,19 @@ this e-learning web application allows clients of
 Coffee Electronics to use the products of said company
 remotely and by more users at the same time.
 
+# Stack
+
++ Node
+
++ Express
+
++ Angular
+
++ Sequelize
+
++ PostgreSQL
+
+
 # Routes
 
 ```/``` Login for users and mods.
